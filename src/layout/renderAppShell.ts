@@ -70,9 +70,7 @@ export const renderAppShell = ({
               <span class="topbar__indicator" aria-hidden="true"></span>
               ${navLinks}
             </nav>
-            <button class="theme-switch" type="button" aria-label="Cambiar modo oscuro">
-              🌙
-            </button>
+            <button class="theme-switch" type="button" aria-label="Cambiar tema"></button>
           </header>
 
           <main class="content" id="content-panel" data-section-id="${initialSection.id}">

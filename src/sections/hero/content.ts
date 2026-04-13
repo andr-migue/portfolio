@@ -4,33 +4,70 @@ export const heroSection: SectionDefinition = {
   id: 'hero',
   label: 'Inicio',
   summaryTitle: 'Inicio',
-  summaryDescription: 'Presentación rápida de perfil y propuesta de valor profesional.',
+  summaryDescription: 'Resumen rápido con highlights de proyectos, skills, experiencia y formación.',
   sidebarFields: [
-    { label: 'Rol objetivo', value: 'Frontend / Fullstack' },
-    { label: 'Disponibilidad', value: 'Abierto a oportunidades' },
-    { label: 'Ubicación', value: 'Remoto / Híbrido' }
+    { label: 'Proyecto destacado', value: '1 caso principal' },
+    { label: 'Skills clave', value: 'Frontend + Backend + Dev Tools' },
+    { label: 'Última formación', value: '2023 - 2024' }
   ],
-  title: 'Portfolio profesional en construcción',
+  title: 'Resumen principal del perfil',
   blocks: [
     {
       type: 'paragraph',
-      text: 'Este espacio presentará de forma clara tu propuesta de valor: qué haces, para quién y con qué impacto.'
+      text: 'Aquí puedes ver en una sola vista lo más importante del perfil: un proyecto con impacto, fortalezas técnicas, experiencia reciente y formación relevante.'
     },
     {
       type: 'cards',
-      title: 'Bloques de destaque',
+      title: 'Proyecto destacado',
       items: [
         {
-          title: 'Especialidad',
-          subtitle: 'Área principal',
-          description: 'Describe aquí tu foco técnico principal y el tipo de problemas que resuelves mejor.',
-          tags: ['Frontend', 'Arquitectura', 'UX']
+          title: 'Proyecto A',
+          subtitle: 'Producto web',
+          description: 'Caso principal donde se resolvió un problema de producto con mejoras medibles en rendimiento y experiencia de usuario.',
+          tags: ['UI', 'API', 'Performance']
+        }
+      ]
+    },
+    {
+      type: 'cards',
+      title: 'Skills clave',
+      items: [
+        {
+          title: 'Frontend',
+          subtitle: 'Interfaz y experiencia',
+          description: 'Construcción de interfaces modernas, accesibles y optimizadas para entornos de producción.',
+          tags: ['HTML', 'CSS', 'TypeScript', 'Frameworks']
         },
         {
-          title: 'Valor entregado',
-          subtitle: 'Resultado',
-          description: 'Incluye métricas de impacto (rendimiento, conversión, tiempos, calidad).',
-          tags: ['Impacto', 'Métricas', 'Calidad']
+          title: 'Backend',
+          subtitle: 'APIs y lógica',
+          description: 'Diseño y desarrollo de servicios para soportar reglas de negocio y escalabilidad.',
+          tags: ['Node.js', 'REST', 'Auth', 'Testing']
+        }
+      ]
+    },
+    {
+      type: 'cards',
+      title: 'Experiencia reciente',
+      items: [
+        {
+          title: 'Rol principal reciente',
+          subtitle: 'Equipo de producto',
+          description: 'Implementación de funcionalidades end-to-end con foco en calidad de entrega, mantenibilidad y colaboración con diseño y negocio.',
+          tags: ['Producto', 'Entrega', 'Calidad']
+        }
+      ]
+    },
+    {
+      type: 'timeline',
+      title: 'Educación y formación',
+      items: [
+        {
+          period: '2023 - 2024',
+          title: 'Certificación profesional',
+          organization: 'Institución (placeholder)',
+          description: 'Actualización técnica con foco en arquitectura, buenas prácticas y desarrollo aplicado.',
+          highlights: ['Arquitectura', 'Buenas prácticas', 'Proyecto final']
         }
       ]
     }

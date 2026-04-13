@@ -6,29 +6,38 @@ export const contactSection: SectionDefinition = {
   summaryTitle: 'Contacto',
   summaryDescription: 'Canales directos para oportunidades profesionales.',
   sidebarFields: [
-    { label: 'Email', value: 'tu-correo@dominio.com' },
-    { label: 'LinkedIn', value: 'linkedin.com/in/tu-perfil' },
-    { label: 'GitHub', value: 'github.com/tu-usuario' }
+    {
+      label: 'Email',
+      value:
+        '<a href="mailto:miguelzamora210405@gmail.com">miguelzamora210405@gmail.com</a>'
+    },
+    {
+      label: 'GitHub',
+      value: '<a href="https://github.com/andr-migue" target="_blank" rel="noreferrer">github.com/andr-migue</a>'
+    },
+    {
+      label: 'X',
+      value: '<a href="https://x.com/andr_migue" target="_blank" rel="noreferrer">@andr_migue</a>'
+    }
   ],
   title: 'Contacto',
   blocks: [
     {
-      type: 'list',
-      title: 'Canales de contacto',
-      items: [
-        'Correo profesional: tu-correo@dominio.com',
-        'LinkedIn: linkedin.com/in/tu-perfil',
-        'GitHub: github.com/tu-usuario',
-        'Horario de respuesta: 24-48h (placeholder)'
-      ]
-    },
-    {
       type: 'map',
       title: 'Ubicación',
-      locationLabel: 'Zona de trabajo (referencial)',
+      locationLabel: 'La Habana del Este, Cuba',
       embedUrl:
-        'https://www.openstreetmap.org/export/embed.html?bbox=-3.726%2C40.39%2C-3.67%2C40.44&layer=mapnik',
-      note: 'Mapa referencial, reemplaza por tu ubicación profesional.'
+        'https://www.openstreetmap.org/export/embed.html?bbox=-82.35%2C23.10%2C-82.20%2C23.21&layer=mapnik&marker=23.159%2C-82.295',
+      note: 'Ubicación por defecto.'
+    },
+    {
+      type: 'contactForm',
+      title: 'Envíame un mensaje',
+      recipientEmail: 'miguelzamora210405@gmail.com',
+      accountLabel: 'Cuenta de la persona',
+      subjectLabel: 'Asunto',
+      bodyLabel: 'Body del mail',
+      submitLabel: 'Enviar mensaje'
     }
   ]
 }

@@ -54,6 +54,15 @@ export type SectionBlock =
       embedUrl: string
       note: string
     }
+  | {
+      type: 'contactForm'
+      title: string
+      recipientEmail: string
+      accountLabel: string
+      subjectLabel: string
+      bodyLabel: string
+      submitLabel: string
+    }
 
 export type SectionDefinition = {
   id: SectionId

@@ -81,6 +81,51 @@ const renderMapBlock = (block: Extract<SectionBlock, { type: 'map' }>): string =
   `
 }
 
+const renderContactFormBlock = (
+  block: Extract<SectionBlock, { type: 'contactForm' }>
+): string => {
+  return `
+    <section class="content-block">
+      <h2 class="content-block__title">${block.title}</h2>
+      <form class="contact-mail-form" data-recipient-email="${block.recipientEmail}" novalidate>
+        <div class="contact-mail-form__row">
+          <label class="contact-mail-form__field">
+            <span>${block.accountLabel}</span>
+            <input
+              type="email"
+              name="account"
+              autocomplete="email"
+              placeholder="correo@dominio.com"
+              required
+            />
+          </label>
+
+          <label class="contact-mail-form__field">
+            <span>${block.subjectLabel}</span>
+            <input type="text" name="subject" placeholder="Asunto" maxlength="120" required />
+          </label>
+        </div>
+
+        <label class="contact-mail-form__field">
+          <span>${block.bodyLabel}</span>
+          <textarea
+            name="body"
+            rows="6"
+            placeholder="Escribe tu mensaje"
+            maxlength="2000"
+            required
+          ></textarea>
+        </label>
+
+        <div class="contact-mail-form__actions">
+          <button type="submit" class="contact-mail-form__submit">${block.submitLabel}</button>
+          <p class="contact-mail-form__status" aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
+  `
+}
+
 export const renderSectionBlocks = (blocks: SectionBlock[]): string => {
   return blocks
     .map((block) => {
@@ -98,6 +143,10 @@ export const renderSectionBlocks = (blocks: SectionBlock[]): string => {
 
       if (block.type === 'timeline') {
         return renderTimelineBlock(block)
+      }
+
+      if (block.type === 'contactForm') {
+        return renderContactFormBlock(block)
       }
 
       return renderMapBlock(block)

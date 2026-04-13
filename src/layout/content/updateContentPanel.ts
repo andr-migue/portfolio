@@ -1,5 +1,6 @@
 import type { SectionDefinition } from '../../sections/types'
 import { renderSectionBlocks } from './renderSectionBlocks'
+import { initContactMailForm } from '../../utils/contactForm'
 
 export const updateContentPanel = (section: SectionDefinition): void => {
   const contentPanel = document.querySelector<HTMLElement>('#content-panel')
@@ -13,4 +14,5 @@ export const updateContentPanel = (section: SectionDefinition): void => {
   contentPanel.dataset.sectionId = section.id
   contentTitle.textContent = section.title
   contentBody.innerHTML = renderSectionBlocks(section.blocks)
+  initContactMailForm()
 }

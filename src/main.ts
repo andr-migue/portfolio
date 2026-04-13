@@ -3,6 +3,7 @@ import { profile } from './data/profile'
 import { renderAppShell } from './layout/renderAppShell'
 import { initSectionNavigation } from './layout/topbar/initSectionNavigation'
 import { initialSectionId, navSections, sectionById } from './sections'
+import { initContactMailForm } from './utils/contactForm'
 import { initThemeToggle } from './utils/theme'
 
 const app = document.querySelector<HTMLDivElement>('#app')
@@ -21,3 +22,4 @@ app.innerHTML = renderAppShell({
 initSectionNavigation({ sectionById })
 
 initThemeToggle()
+initContactMailForm()
