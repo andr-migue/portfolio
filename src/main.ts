@@ -1,6 +1,8 @@
 import './styles/main.css'
-import { initialSectionSummary, navSections, profile } from './data/siteContent'
+import { profile } from './data/profile'
 import { renderAppShell } from './layout/renderAppShell'
+import { initSectionNavigation } from './layout/topbar/initSectionNavigation'
+import { initialSectionId, navSections, sectionById } from './sections'
 import { initThemeToggle } from './utils/theme'
 
 const app = document.querySelector<HTMLDivElement>('#app')
@@ -12,7 +14,10 @@ if (!app) {
 app.innerHTML = renderAppShell({
   sections: navSections,
   profile,
-  summary: initialSectionSummary
+  initialSection: sectionById[initialSectionId],
+  activeSectionId: initialSectionId
 })
+
+initSectionNavigation({ sectionById })
 
 initThemeToggle()

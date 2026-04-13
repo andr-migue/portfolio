@@ -1,25 +1,51 @@
-import type { NavSection, Profile } from '../data/siteContent'
-
-type SectionSummary = {
-  title: string
-  description: string
-}
+import type { Profile } from '../data/profile'
+import type { NavSection, SectionDefinition } from '../sections/types'
+import { renderSectionBlocks } from './content/renderSectionBlocks'
 
 type RenderAppShellParams = {
   sections: NavSection[]
   profile: Profile
-  summary: SectionSummary
+  initialSection: SectionDefinition
+  activeSectionId: string
 }
 
-export const renderAppShell = ({ sections, profile, summary }: RenderAppShellParams): string => {
+export const renderAppShell = ({
+  sections,
+  profile,
+  initialSection,
+  activeSectionId
+}: RenderAppShellParams): string => {
   const navLinks = sections
-    .map((section) => `<a href="#${section.id}">${section.label}</a>`)
+    .map(
+      (section) => `
+        <button
+          type="button"
+          class="topbar__button${section.id === activeSectionId ? ' is-active' : ''}"
+          data-section-id="${section.id}"
+        >
+          ${section.label}
+        </button>
+      `
+    )
+    .join('')
+
+  const sectionBlocks = renderSectionBlocks(initialSection.blocks)
+  const sidebarFields = initialSection.sidebarFields
+    .map(
+      (field) => `
+        <li class="sidebar-fields__item">
+          <span class="sidebar-fields__label">${field.label}</span>
+          <span class="sidebar-fields__value">${field.value}</span>
+        </li>
+      `
+    )
     .join('')
 
   return `
     <div class="app-shell">
       <header class="topbar">
         <nav class="topbar__nav" aria-label="Secciones principales">
+          <span class="topbar__indicator" aria-hidden="true"></span>
           ${navLinks}
         </nav>
         <button class="theme-switch" type="button" aria-label="Cambiar modo oscuro">
@@ -40,17 +66,17 @@ export const renderAppShell = ({ sections, profile, summary }: RenderAppShellPar
           </div>
 
           <div class="sidebar__section-summary">
-            <h2>${summary.title}</h2>
-            <p>${summary.description}</p>
+            <h2 id="section-summary-title">${initialSection.summaryTitle}</h2>
+            <p id="section-summary-description">${initialSection.summaryDescription}</p>
+            <ul class="sidebar-fields" id="section-sidebar-fields">
+              ${sidebarFields}
+            </ul>
           </div>
         </aside>
 
-        <main class="content" id="hero">
-          <h1>Portfolio profesional en construcción</h1>
-          <p>
-            Este es el nuevo punto de entrada base. Desde aquí iremos montando cada sección
-            con contenido real y estructura modular.
-          </p>
+        <main class="content" id="content-panel">
+          <h1 id="content-title">${initialSection.title}</h1>
+          <div id="content-body">${sectionBlocks}</div>
         </main>
       </div>
     </div>
