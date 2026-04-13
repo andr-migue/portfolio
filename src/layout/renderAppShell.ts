@@ -23,7 +23,7 @@ export const renderAppShell = ({
           class="topbar__button${section.id === activeSectionId ? ' is-active' : ''}"
           data-section-id="${section.id}"
         >
-          ${section.label}
+          <span class="topbar__button-label">${section.label}</span>
         </button>
       `
     )
@@ -43,16 +43,6 @@ export const renderAppShell = ({
 
   return `
     <div class="app-shell">
-      <header class="topbar">
-        <nav class="topbar__nav" aria-label="Secciones principales">
-          <span class="topbar__indicator" aria-hidden="true"></span>
-          ${navLinks}
-        </nav>
-        <button class="theme-switch" type="button" aria-label="Cambiar modo oscuro">
-          🌙
-        </button>
-      </header>
-
       <div class="layout">
         <aside class="sidebar" aria-label="Resumen de sección">
           <div class="profile-card">
@@ -74,10 +64,22 @@ export const renderAppShell = ({
           </div>
         </aside>
 
-        <main class="content" id="content-panel">
-          <h1 id="content-title">${initialSection.title}</h1>
-          <div id="content-body">${sectionBlocks}</div>
-        </main>
+        <section class="main-panel" aria-label="Contenido principal">
+          <header class="topbar">
+            <nav class="topbar__nav" aria-label="Secciones principales">
+              <span class="topbar__indicator" aria-hidden="true"></span>
+              ${navLinks}
+            </nav>
+            <button class="theme-switch" type="button" aria-label="Cambiar modo oscuro">
+              🌙
+            </button>
+          </header>
+
+          <main class="content" id="content-panel" data-section-id="${initialSection.id}">
+            <h1 id="content-title">${initialSection.title}</h1>
+            <div id="content-body">${sectionBlocks}</div>
+          </main>
+        </section>
       </div>
     </div>
   `

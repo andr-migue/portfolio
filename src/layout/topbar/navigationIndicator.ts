@@ -8,6 +8,8 @@ const getTopbarElements = (): {
   return { nav, indicator }
 }
 
+const INDICATOR_BOTTOM_TRIM_PX = 3
+
 export const moveNavIndicatorToButton = (button: HTMLButtonElement): void => {
   const { nav, indicator } = getTopbarElements()
 
@@ -19,9 +21,10 @@ export const moveNavIndicatorToButton = (button: HTMLButtonElement): void => {
   const buttonRect = button.getBoundingClientRect()
   const x = buttonRect.left - navRect.left
   const y = buttonRect.top - navRect.top
+  const indicatorHeight = Math.max(0, buttonRect.height - INDICATOR_BOTTOM_TRIM_PX)
 
   indicator.style.width = `${buttonRect.width}px`
-  indicator.style.height = `${buttonRect.height}px`
+  indicator.style.height = `${indicatorHeight}px`
   indicator.style.transform = `translate(${x}px, ${y}px)`
 }
 
