@@ -1,0 +1,51 @@
+@media (max-width: 920px) {
+  body {
+    overflow: auto;
+  }
+
+  .app-shell {
+    height: auto;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 0.8rem;
+  }
+
+  .topbar__nav {
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .content {
+    padding: 1.25rem;
+    overflow: visible;
+  }
+
+  #content-panel[data-section-id='contact'] #content-body {
+    height: auto;
+    grid-template-rows: auto;
+  }
+
+  .contact-mail-form__row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-mail-form__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .topbar__indicator {
+    transition: none;
+  }
+}

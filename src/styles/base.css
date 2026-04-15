@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  background-image:
+    radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 20%, transparent 80%), transparent 45%),
+    radial-gradient(circle at 85% 0%, color-mix(in srgb, var(--accent-soft) 14%, transparent 86%), transparent 35%);
+}

@@ -4,7 +4,6 @@ export type SectionId =
   | 'skills'
   | 'projects'
   | 'experience'
-  | 'education'
   | 'contact'
 
 export type SidebarField = {

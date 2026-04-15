@@ -1,0 +1,38 @@
+<section class="content-block">
+  <h2 class="content-block__title">{{TITLE}}</h2>
+  <form class="contact-mail-form" data-recipient-email="{{RECIPIENT_EMAIL}}" novalidate>
+    <div class="contact-mail-form__row">
+      <label class="contact-mail-form__field">
+        <span>{{ACCOUNT_LABEL}}</span>
+        <input
+          type="email"
+          name="account"
+          autocomplete="email"
+          placeholder="correo@dominio.com"
+          required
+        />
+      </label>
+
+      <label class="contact-mail-form__field">
+        <span>{{SUBJECT_LABEL}}</span>
+        <input type="text" name="subject" placeholder="Asunto" maxlength="120" required />
+      </label>
+    </div>
+
+    <label class="contact-mail-form__field">
+      <span>{{BODY_LABEL}}</span>
+      <textarea
+        name="body"
+        rows="6"
+        placeholder="Escribe tu mensaje"
+        maxlength="2000"
+        required
+      ></textarea>
+    </label>
+
+    <div class="contact-mail-form__actions">
+      <button type="submit" class="contact-mail-form__submit">{{SUBMIT_LABEL}}</button>
+      <p class="contact-mail-form__status" aria-live="polite"></p>
+    </div>
+  </form>
+</section>

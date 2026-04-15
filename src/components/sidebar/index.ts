@@ -1,0 +1,1 @@
+export { renderSidebar } from './sidebar'

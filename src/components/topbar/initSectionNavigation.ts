@@ -1,7 +1,6 @@
-import { updateContentPanel } from '../content/updateContentPanel'
-import { updateSectionSummary } from '../sidebar/updateSectionSummary'
-import { moveNavIndicatorToButton, syncIndicatorWithActiveButton } from './navigationIndicator'
 import type { SectionDefinition, SectionId } from '../../sections/types'
+import { updateContentPanel } from '../content'
+import { moveNavIndicatorToButton, syncIndicatorWithActiveButton } from './navigationIndicator'
 
 type InitSectionNavigationParams = {
   sectionById: Record<SectionId, SectionDefinition>
@@ -39,7 +38,6 @@ export const initSectionNavigation = ({ sectionById }: InitSectionNavigationPara
       }
 
       updateContentPanel(section)
-      updateSectionSummary(section)
       setActiveTopbarButton(sectionId)
     })
   })
@@ -48,5 +46,5 @@ export const initSectionNavigation = ({ sectionById }: InitSectionNavigationPara
 
   window.addEventListener('resize', () => {
     syncIndicatorWithActiveButton()
-   })
- }
+  })
+}

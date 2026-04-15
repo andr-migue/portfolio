@@ -1,6 +1,5 @@
 import { aboutSection } from './about/content'
 import { contactSection } from './contact/content'
-import { educationSection } from './education/content'
 import { experienceSection } from './experience/content'
 import { heroSection } from './hero/content'
 import { projectsSection } from './projects/content'
@@ -13,7 +12,6 @@ export const sections: SectionDefinition[] = [
   skillsSection,
   projectsSection,
   experienceSection,
-  educationSection,
   contactSection
 ]
 
@@ -23,7 +21,6 @@ export const sectionById: Record<SectionId, SectionDefinition> = {
   skills: skillsSection,
   projects: projectsSection,
   experience: experienceSection,
-  education: educationSection,
   contact: contactSection
 }
 
