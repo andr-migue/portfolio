@@ -3,8 +3,8 @@ import SideBar from '../components/Sidebar/SideBar';
 
 export default function DefaultPage() {
     return (
-        <main>
+        <div className='page'>
             <SideBar/>
-        </main>
+        </div>
     )
 }

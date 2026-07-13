@@ -12,11 +12,17 @@ export default function SideBar() {
             
             <ul className='sidebar-fields'>
                 <li className='sidebar-fields__item'>
+                    <span className='sidebar-fields__name'>Email: </span>
                     <span className='sidebar-fields__value'>
-                        <a href='mailto: miguelzamora210405@gmail.com'>email</a>
+                        <a href='mailto: miguelzamora210405@gmail.com'>miguelzamora210405@gmail.com</a>
                     </span>
                 </li>
+                <li className='sidebar-fields__item'>
+                    <span className='sidebar-fields__name'>Phone: </span>
+                    <span className='sidebar-fields__value'>+53 56860394</span>
+                </li>        
             </ul>
+
         </aside>
     )
 }

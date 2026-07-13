@@ -15,3 +15,7 @@ body {
   background-color: var(--color-bg);
   line-height: 1.6;
 }
+
+html, body, #root {
+  height: 100%;
+}

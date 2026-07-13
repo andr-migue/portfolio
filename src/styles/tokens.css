@@ -1,6 +1,6 @@
 :root {
   /* Dark Mode (default) */
-  --color-bg: var(--color-neutral-10);
+  --color-bg: var(--color-neutral-0);
   --color-surface: var(--color-neutral-9);
   --color-text: var(--color-neutral-2);
   --color-text-muted: var(--color-neutral-5);
@@ -9,7 +9,7 @@
   --color-accent-subtle: var(--color-primary-9);
   --color-secondary: var(--color-secondary-5);
   --color-secondary-hover: var(--color-secondary-6);
-  --color-border: var(--color-neutral-8);
+  --color-border: var(--color-neutral-6);
 
   /* Typography */
   --font-base: 'Helvetica Neue', Helvetica, Arial, sans-serif;
