@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import './default-page.css'
 import SideBar from '../components/Sidebar/SideBar'
-import About from '../components/contents/About/About'
-import Skills from '../components/contents/Skills/Skills'
-import Experience from '../components/contents/Experience/Experience'
-import Projects from '../components/contents/Projects/Projects'
-import Contact from '../components/contents/Contact/Contact'
+import About from '../components/About/About'
+import Skills from '../components/Skills/Skills'
+import Experience from '../components/Experience/Experience'
+import Projects from '../components/Projects/Projects'
+import Contact from '../components/Contact/Contact'
 
 const sections = [<About />, <Skills />, <Experience />, <Projects />, <Contact />]
 
