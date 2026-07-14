@@ -1,53 +1,99 @@
 .sidebar {
-    display: flex;
-    flex-direction: column;
-    padding: 1.2rem;
-    background: var(--color-surface);
-    border-radius: 18px;
-    border: 2px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 1.5rem 1.2rem;
+  background: var(--color-surface);
 }
 
 .profile-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0.4rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  padding-bottom: 1.5rem;
+}
+
+.theme-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-content);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-button:hover {
+  background: var(--color-accent-subtle);
+  border-color: var(--color-accent);
+}
+
+.theme-button_icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+[data-theme='dark'] .theme-button_icon {
+  filter: invert(1);
 }
 
 .profile-card__image {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--color-border);
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-border);
 }
 
 .profile-card__name {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: var(--color-text);
 }
 
 .profile-card__role {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 550;
   color: var(--color-text-muted);
 }
 
 .sidebar-fields {
-    display: grid;
-    gap: 0.4rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.sidebar-fields__item {
+  display: grid;
+  gap: 0.1rem;
 }
 
 .sidebar-fields__name {
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: 550;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   color: var(--color-text-muted);
+  text-align: center;
 }
 
 .sidebar-fields__value {
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: 400;
   color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
 }
 
 .sidebar-fields__value a {
