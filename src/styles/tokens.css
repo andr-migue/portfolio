@@ -1,8 +1,8 @@
 :root {
   /* Light mode (default) */
   --color-bg: var(--color-primary-2);
-  --color-surface: var(--color-neutral-0);
-  --color-surface-content: var(--color-neutral-1);
+  --color-surface: var(--color-neutral-1);
+  --color-surface-content: var(--color-neutral-2);
   --color-text: var(--color-neutral-9);
   --color-text-muted: var(--color-neutral-5);
   --color-accent: var(--color-primary-4);

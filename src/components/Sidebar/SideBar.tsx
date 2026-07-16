@@ -1,7 +1,7 @@
 import './SideBar.css'
 import NavBar from '../NavBar/NavBar'
 
-const sections = ['About', 'Skills', 'Experience', 'Projects', 'Contact']
+const sections = ['About', 'Experience', 'Projects', 'Contact']
 
 interface SideBarProps {
     active: number
