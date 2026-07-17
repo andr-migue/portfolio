@@ -15,10 +15,15 @@ export default function Experience() {
                 {rows.map((row, rowIndex) => {
                     const isReversed = rowIndex % 2 === 1
                     const orderedRow = isReversed ? [...row].reverse() : row
-                    const turnSide = isReversed ? 'left' : 'right'
+                    const isLast = rowIndex === rows.length - 1
+                    const dropClass = isLast
+                        ? ''
+                        : isReversed
+                            ? ' experience__row-wrapper--drops-left'
+                            : ' experience__row-wrapper--drops-right'
 
                     return (
-                        <div key={rowIndex} className='experience__row-wrapper'>
+                        <div key={rowIndex} className={`experience__row-wrapper${dropClass}`}>
                             <div className={`experience__row${isReversed ? ' experience__row--reversed' : ''}`}>
                                 {orderedRow.map((exp) => {
                                     const related = exp.projectName
@@ -33,9 +38,6 @@ export default function Experience() {
                                     )
                                 })}
                             </div>
-                            {rowIndex < rows.length - 1 && (
-                                <div className={`experience__turn experience__turn--${turnSide}`} />
-                            )}
                         </div>
                     )
                 })}
