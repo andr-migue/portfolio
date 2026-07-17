@@ -1,11 +1,9 @@
 .about {
     padding: var(--space-md);
     display: flex;
-    justify-content: center;
 }
 
 .about__content {
-    max-width: 70ch;
     width: 100%;
     color: var(--color-text);
     font-size: var(--font-size-base);
