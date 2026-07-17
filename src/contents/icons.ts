@@ -1,6 +1,6 @@
 const SKILL_ICONS_BASE = 'https://go-skill-icons.vercel.app/api/icons?i='
 
-const techIconSlugs: Record<string, string> = {
+const iconSlugs: Record<string, string> = {
     TypeScript: 'typescript',
     'C#': 'cs',
     'C++': 'cpp',
@@ -11,9 +11,14 @@ const techIconSlugs: Record<string, string> = {
     Vite: 'vite',
     CSS: 'css',
     Godot: 'godot',
+    LinkedIn: 'linkedin',
+    X: 'twitter',
+    Telegram: 'telegram',
+    Discord: 'discord',
+    Instagram: 'instagram',
 }
 
 export function getIcon(name: string): string | undefined {
-    const slug = techIconSlugs[name]
+    const slug = iconSlugs[name]
     return slug ? `${SKILL_ICONS_BASE}${slug}` : undefined
 }

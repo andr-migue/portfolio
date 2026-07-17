@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import './SideBar.css'
 import NavBar from '../NavBar/NavBar'
+import { contact } from '../../contents/contact'
+import { getIcon } from '../../contents/icons'
 
 const sections = ['About', 'Experience', 'Projects', 'Contact']
 
@@ -11,9 +13,20 @@ interface SideBarProps {
     toggleTheme: () => void
 }
 
+const EMAIL = 'miguelzamora210405@gmail.com'
+const PHONE = '+53 56860394'
+
 export default function SideBar({ active, onSelect, theme, toggleTheme }: SideBarProps) {
     const [showImage, setShowImage] = useState(false)
+    const [copied, setCopied] = useState<string | null>(null)
     const overlayRef = useRef<HTMLDivElement>(null)
+
+    function copy(key: string, value: string) {
+        navigator.clipboard.writeText(value).then(() => {
+            setCopied(key)
+            setTimeout(() => setCopied(c => (c === key ? null : c)), 1500)
+        })
+    }
 
     useEffect(() => {
         if (!showImage) return
@@ -52,14 +65,38 @@ export default function SideBar({ active, onSelect, theme, toggleTheme }: SideBa
             <ul className='sidebar-fields'>
                 <li className='sidebar-fields__item'>
                     <span className='sidebar-fields__name'>Email: </span>
-                    <span className='sidebar-fields__value'>
-                        <a href='mailto: miguelzamora210405@gmail.com'>miguelzamora210405@gmail.com</a>
+                    <span className='sidebar-fields__value sidebar-fields__value--copyable'>
+                        <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                        <button
+                            type='button'
+                            className='sidebar-fields__copy'
+                            onClick={() => copy('email', EMAIL)}
+                            aria-label='Copiar email'
+                        >
+                            <img src='/icons/copy.svg' alt='' aria-hidden='true' />
+                            {copied === 'email' && (
+                                <span className='sidebar-fields__copied'>¡Copiado!</span>
+                            )}
+                        </button>
                     </span>
                 </li>
                 <li className='sidebar-fields__item'>
                     <span className='sidebar-fields__name'>Phone: </span>
-                    <span className='sidebar-fields__value'>+53 56860394</span>
-                </li> 
+                    <span className='sidebar-fields__value sidebar-fields__value--copyable'>
+                        <span>{PHONE}</span>
+                        <button
+                            type='button'
+                            className='sidebar-fields__copy'
+                            onClick={() => copy('phone', PHONE)}
+                            aria-label='Copiar teléfono'
+                        >
+                            <img src='/icons/copy.svg' alt='' aria-hidden='true' />
+                            {copied === 'phone' && (
+                                <span className='sidebar-fields__copied'>¡Copiado!</span>
+                            )}
+                        </button>
+                    </span>
+                </li>
                 <li className='sidebar-fields__item'>
                     <span className='sidebar-fields__name'>GitHub: </span>
                     <span className='sidebar-fields__value'>
@@ -69,7 +106,28 @@ export default function SideBar({ active, onSelect, theme, toggleTheme }: SideBa
                 <li className='sidebar-fields__item'>
                     <span className='sidebar-fields__name'>Location: </span>
                     <span className='sidebar-fields__value'>Havana, Cuba</span>
-                </li>        
+                </li>
+                <li className='sidebar-fields__item'>
+                    <ul className='sidebar-socials'>
+                        {contact.socials.map(s => (
+                            <li key={s.name} className='sidebar-socials__item'>
+                                <a
+                                    href={s.url}
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    title={s.name}
+                                    className='sidebar-socials__link'
+                                >
+                                    <img
+                                        src={getIcon(s.name)}
+                                        alt={s.name}
+                                        className='sidebar-socials__icon'
+                                    />
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </li>
             </ul>
 
             {showImage && (
