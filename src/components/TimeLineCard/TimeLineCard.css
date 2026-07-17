@@ -1,0 +1,186 @@
+.timeline-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+}
+
+.timeline-card__node {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    border: 2px solid var(--color-surface);
+    box-shadow: 0 0 0 2px var(--color-accent);
+    flex-shrink: 0;
+    z-index: 1;
+    margin-bottom: 0.75rem;
+}
+
+.timeline-card__body {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: var(--space-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.timeline-card__body:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 16px color-mix(in srgb, var(--color-accent) 15%, transparent);
+    transform: translateY(-2px);
+}
+
+.timeline-card__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.timeline-card__title-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4rem;
+}
+
+.timeline-card__title {
+    font-size: var(--font-size-base);
+    font-weight: 650;
+    color: var(--color-text);
+}
+
+.timeline-card__company {
+    font-size: var(--font-size-sm);
+    color: var(--color-accent);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+a.timeline-card__company:hover {
+    text-decoration: underline;
+}
+
+.timeline-card__dates {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.timeline-card__description {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+/* Iconos de tecnologías */
+.timeline-card__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.timeline-card__tech-item {
+    display: flex;
+    align-items: center;
+}
+
+.timeline-card__tech-icon {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.timeline-card__tech-label {
+    font-size: var(--font-size-sm);
+    background: var(--color-surface-content);
+    color: var(--color-text-muted);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+}
+
+/* Proyecto relacionado — trigger */
+.timeline-card__project {
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.timeline-card__project-trigger {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-accent);
+    transition: color 0.2s ease;
+}
+
+.timeline-card__project-trigger:hover {
+    color: var(--color-accent-hover);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Overlay y card flotante */
+.timeline-card__overlay {
+    position: fixed;
+    inset: 0;
+    background: color-mix(in srgb, var(--color-neutral-11) 40%, transparent);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-sm);
+}
+
+.timeline-card__floating {
+    position: relative;
+    max-width: 640px;
+    width: 100%;
+    animation: floatingIn 0.18s ease;
+}
+
+.timeline-card__floating-close {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    z-index: 1;
+    background: var(--color-surface-content);
+    border: none;
+    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.timeline-card__floating-close:hover {
+    background: var(--color-accent-subtle);
+    color: var(--color-accent);
+}
+
+@keyframes floatingIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
