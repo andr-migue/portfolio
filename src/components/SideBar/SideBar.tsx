@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react'
 import './SideBar.css'
 import NavBar from '../NavBar/NavBar'
 
@@ -11,6 +12,18 @@ interface SideBarProps {
 }
 
 export default function SideBar({ active, onSelect, theme, toggleTheme }: SideBarProps) {
+    const [showImage, setShowImage] = useState(false)
+    const overlayRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        if (!showImage) return
+        function handleKey(e: KeyboardEvent) {
+            if (e.key === 'Escape') setShowImage(false)
+        }
+        document.addEventListener('keydown', handleKey)
+        return () => document.removeEventListener('keydown', handleKey)
+    }, [showImage])
+
     return (
         <aside className='sidebar'>
 
@@ -22,7 +35,14 @@ export default function SideBar({ active, onSelect, theme, toggleTheme }: SideBa
                         className='theme-button_icon'
                     />
                 </button>
-                <img src='images/hero.jpg' alt='Profile Image' className='profile-card__image'/>
+                <button
+                    type='button'
+                    className='profile-card__image-button'
+                    onClick={() => setShowImage(true)}
+                    aria-label='Ver foto de perfil en grande'
+                >
+                    <img src='images/hero.jpg' alt='Profile Image' className='profile-card__image'/>
+                </button>
                 <h2 className='profile-card__name'>Miguel Cazorla Zamora</h2>
                 <p className='profile-card__role'>Fullstack Software Developer</p>
             </div>
@@ -51,6 +71,29 @@ export default function SideBar({ active, onSelect, theme, toggleTheme }: SideBa
                     <span className='sidebar-fields__value'>Havana, Cuba</span>
                 </li>        
             </ul>
+
+            {showImage && (
+                <div
+                    className='profile-card__overlay'
+                    ref={overlayRef}
+                    onClick={e => { if (e.target === overlayRef.current) setShowImage(false) }}
+                >
+                    <div className='profile-card__floating'>
+                        <button
+                            className='profile-card__floating-close'
+                            onClick={() => setShowImage(false)}
+                            aria-label='Cerrar'
+                        >
+                            ✕
+                        </button>
+                        <img
+                            src='images/hero.jpg'
+                            alt='Profile Image'
+                            className='profile-card__floating-image'
+                        />
+                    </div>
+                </div>
+            )}
 
         </aside>
     )

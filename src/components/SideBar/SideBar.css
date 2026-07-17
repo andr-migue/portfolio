@@ -47,12 +47,95 @@
   filter: invert(1);
 }
 
+.profile-card__image-button {
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.profile-card__image-button:hover {
+  transform: scale(1.03);
+}
+
 .profile-card__image {
+  display: block;
   width: 230px;
   height: 230px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--color-border);
+  transition: border-color 0.2s ease;
+}
+
+.profile-card__image-button:hover .profile-card__image {
+  border-color: var(--color-accent);
+}
+
+.profile-card__overlay {
+  position: fixed;
+  inset: 0;
+  background: color-mix(in srgb, var(--color-neutral-11) 60%, transparent);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  animation: profileOverlayIn 0.15s ease;
+}
+
+.profile-card__floating {
+  position: relative;
+  max-width: 90vmin;
+  max-height: 90vmin;
+  animation: profileFloatingIn 0.2s ease;
+}
+
+.profile-card__floating-image {
+  display: block;
+  max-width: 90vmin;
+  max-height: 90vmin;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  border: 3px solid var(--color-border);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+.profile-card__floating-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 1;
+  background: var(--color-surface-content);
+  border: none;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.profile-card__floating-close:hover {
+  background: var(--color-accent-subtle);
+  color: var(--color-accent);
+}
+
+@keyframes profileOverlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes profileFloatingIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 .profile-card__name {
