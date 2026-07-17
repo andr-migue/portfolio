@@ -3,7 +3,6 @@ import './Form.css'
 import { contact } from '../../contents/contact'
 
 export default function Form() {
-    const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [subject, setSubject] = useState('')
     const [message, setMessage] = useState('')
