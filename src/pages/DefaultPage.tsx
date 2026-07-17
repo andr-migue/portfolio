@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import './default-page.css'
-import SideBar from '../components/Sidebar/SideBar'
+import './DefaultPage.css'
+import SideBar from '../components/SideBar/SideBar'
 import About from '../components/About/About'
 import Experience from '../components/Experience/Experience'
 import Projects from '../components/Projects/Projects'

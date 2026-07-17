@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import DefaultPage from './pages/default-page'
+import DefaultPage from './pages/DefaultPage'
 
 export default function App() {
     const [theme, setTheme] = useState<'light' | 'dark'>('light')
