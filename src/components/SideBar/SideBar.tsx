@@ -75,7 +75,7 @@ export default function SideBar({ active, onSelect, theme, toggleTheme }: SideBa
                         >
                             <img src='/icons/copy.svg' alt='' aria-hidden='true' />
                             {copied === 'email' && (
-                                <span className='sidebar-fields__copied'>¡Copiado!</span>
+                                <span className='sidebar-fields__copied'>¡Copied!</span>
                             )}
                         </button>
                     </span>
@@ -92,7 +92,7 @@ export default function SideBar({ active, onSelect, theme, toggleTheme }: SideBa
                         >
                             <img src='/icons/copy.svg' alt='' aria-hidden='true' />
                             {copied === 'phone' && (
-                                <span className='sidebar-fields__copied'>¡Copiado!</span>
+                                <span className='sidebar-fields__copied'>¡Copied!</span>
                             )}
                         </button>
                     </span>
