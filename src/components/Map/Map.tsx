@@ -1,12 +1,14 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import L from 'leaflet'
-import iconUrl from 'leaflet/dist/images/marker-icon.png'
-import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png'
-import shadowUrl from 'leaflet/dist/images/marker-shadow.png'
 import './Map.css'
 import { contact } from '../../contents/contact'
 
-L.Icon.Default.mergeOptions({ iconUrl, iconRetinaUrl, shadowUrl })
+const markerIcon = L.icon({
+    iconUrl: '/icons/map-marker.svg',
+    iconSize: [32, 44],
+    iconAnchor: [16, 43],
+    popupAnchor: [0, -38],
+})
 
 export default function Map() {
     const { coords, zoom, label } = contact.location
@@ -16,13 +18,13 @@ export default function Map() {
                 center={coords}
                 zoom={zoom}
                 className='map__container'
-                scrollWheelZoom={false}
+                scrollWheelZoom={true}
             >
                 <TileLayer
                     attribution='&copy; OpenStreetMap contributors'
                     url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
                 />
-                <Marker position={coords}>
+                <Marker position={coords} icon={markerIcon}>
                     <Popup>{label}</Popup>
                 </Marker>
             </MapContainer>

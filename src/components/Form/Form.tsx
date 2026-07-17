@@ -17,17 +17,6 @@ export default function Form() {
 
     return (
         <form className='form' onSubmit={handleSubmit}>
-            <div className='form__field'>
-                <label className='form__label' htmlFor='form-name'>Nombre</label>
-                <input
-                    id='form-name'
-                    className='form__input'
-                    type='text'
-                    value={name}
-                    onChange={e => setName(e.target.value)}
-                    required
-                />
-            </div>
 
             <div className='form__field'>
                 <label className='form__label' htmlFor='form-email'>Email</label>
