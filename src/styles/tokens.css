@@ -1,5 +1,5 @@
 :root {
-  /* Light mode (default) */
+  /* Light mode */
   --color-bg: var(--color-primary-2);
   --color-surface: var(--color-neutral-1);
   --color-surface-content: var(--color-neutral-2);
