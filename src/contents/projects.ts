@@ -41,7 +41,7 @@ export const projects: Project[] = [
     },
     {
         name: 'Proyecto-SMIPS-2025-2026',
-        description: 'Simplified MIPS processor (S-MIPS) implemented in Logisim, validated by a Python-based test harness with an assembler, test runner and cost evaluator that checks correctness, clock-cycle efficiency and a hardware budget of ≤100 price units.',
+        description: 'Simplified MIPS processor (S-MIPS) implemented in Logisim, validated by a Python-based test harness with an assembler, test runner and cost evaluator that checks correctness.',
         url: 'https://github.com/andr-migue/Proyecto-SMIPS-2025-2026',
         language: 'Python',
         stars: 1,
@@ -96,7 +96,7 @@ export const projects: Project[] = [
     },
     {
         name: 'minigrep',
-        description: 'Command-line grep-like tool built in Rust that searches for a query string within a file, supporting case-sensitive and case-insensitive matching via an environment variable flag. Covers error handling with Result, trait-based abstraction, and unit testing — implemented without external dependencies.',
+        description: 'Command-line grep-like tool built in Rust that searches for a query string within a file, supporting case-sensitive and case-insensitive matching via an environment variable flag. Covers error handling with Result, trait-based abstraction, and unit testing, implemented without external dependencies.',
         url: 'https://github.com/andr-migue/minigrep',
         language: 'Rust',
         stars: 0,
