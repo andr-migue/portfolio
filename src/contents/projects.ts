@@ -27,7 +27,7 @@ export const projects: Project[] = [
         stars: 3,
         forks: 0,
         tags: ['Godot', 'Procedural Generation', 'Multiplayer', 'Game Dev'],
-        image: '/public/images/projects/Mistborn Maze.png'
+        image: '/images/projects/Mistborn Maze.png'
     },
     {
         name: 'BrushBot-3000',
@@ -37,7 +37,7 @@ export const projects: Project[] = [
         stars: 4,
         forks: 0,
         tags: ['Godot', 'Interpreter', 'Compiler Design', 'Custom Language'],
-        image: '/public/images/projects/BrushBot-3000.png'
+        image: '/images/projects/BrushBot-3000.png'
     },
     {
         name: 'Proyecto-SMIPS-2025-2026',
@@ -47,7 +47,7 @@ export const projects: Project[] = [
         stars: 1,
         forks: 0,
         tags: ['Computer Architecture', 'MIPS', 'Logisim', 'Digital Circuits'],
-        image: '/public/images/projects/SMIPS.png'
+        image: '/images/projects/SMIPS.png'
     },
     {
         name: 'data-structures-and-algorithms',
