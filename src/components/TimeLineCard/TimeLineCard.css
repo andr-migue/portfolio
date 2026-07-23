@@ -144,7 +144,7 @@ a.timeline-card__company:hover {
 
 .timeline-card__floating {
     position: relative;
-    max-width: 640px;
+    max-width: 960px;
     width: 100%;
     animation: floatingIn 0.18s ease;
 }

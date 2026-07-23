@@ -3,7 +3,7 @@ import './DefaultPage.css'
 import SideBar from '../components/SideBar/SideBar'
 import About from '../components/Sections/About/About'
 import Experience from '../components/Sections/Experience/Experience'
-import Projects from '../components/Projects/Projects'
+import Projects from '../components/Sections/Projects/Projects'
 import Contact from '../components/Sections/Contact/Contact'
 
 const sections = [<About />, <Experience />, <Projects />, <Contact />]
