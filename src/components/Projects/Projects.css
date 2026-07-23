@@ -1,6 +1,27 @@
 .projects {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.4rem;
+}
+
+.projects__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.projects__secondary-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.projects__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
-    padding: 1.4rem;
 }

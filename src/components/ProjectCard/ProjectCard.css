@@ -1,12 +1,16 @@
 .project-card {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr 420px;
     gap: 1.5rem;
     padding: 1.75rem;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: 14px;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.project-card--no-image {
+    grid-template-columns: 1fr;
 }
 
 .project-card:hover {
@@ -142,32 +146,89 @@
     display: block;
 }
 
-.project-card__image-wrapper {
-    width: 260px;
-    height: 100%;
-    min-height: 150px;
-    flex-shrink: 0;
+.project-card__image-button {
+    all: unset;
+    cursor: zoom-in;
+    align-self: center;
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid var(--color-border);
-    background: var(--color-surface-content);
+    display: block;
+    width: 100%;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card__image-button:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 1px var(--color-accent);
 }
 
 .project-card__image {
+    display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
 }
 
-.project-card__image-wrapper--placeholder {
+.project-card__overlay {
+    position: fixed;
+    inset: 0;
+    background: color-mix(in srgb, var(--color-neutral-11) 60%, transparent);
+    z-index: 10000;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: var(--space-md);
+    animation: projectOverlayIn 0.15s ease;
 }
 
-.project-card__image-placeholder-icon {
-    width: 3.25rem;
-    height: 3.25rem;
+.project-card__floating {
+    position: relative;
+    max-width: 90vmin;
+    max-height: 90vmin;
+    animation: projectFloatingIn 0.2s ease;
+}
+
+.project-card__floating-image {
+    display: block;
+    max-width: 90vmin;
+    max-height: 90vmin;
+    width: auto;
+    height: auto;
+    border-radius: 12px;
+    border: 3px solid var(--color-border);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+.project-card__floating-close {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    z-index: 1;
+    background: var(--color-surface-content);
+    border: none;
+    border-radius: 6px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    font-size: 0.85rem;
     color: var(--color-text-muted);
-    opacity: 0.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.project-card__floating-close:hover {
+    background: var(--color-accent-subtle);
+    color: var(--color-accent);
+}
+
+@keyframes projectOverlayIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes projectFloatingIn {
+    from { opacity: 0; transform: scale(0.92); }
+    to { opacity: 1; transform: scale(1); }
 }

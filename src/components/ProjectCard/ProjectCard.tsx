@@ -1,3 +1,5 @@
+import { useState, useEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import './ProjectCard.css'
 import type { Project } from '../../contents/projects'
 import { getIcon } from '../../contents/icons'
@@ -8,9 +10,21 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
     const languageIcon = getIcon(project.language)
+    const [showImage, setShowImage] = useState(false)
+    const overlayRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        if (!showImage) return
+        function handleKey(e: KeyboardEvent) {
+            if (e.key === 'Escape') setShowImage(false)
+        }
+        document.addEventListener('keydown', handleKey)
+        return () => document.removeEventListener('keydown', handleKey)
+    }, [showImage])
 
     return (
-        <article className='project-card'>
+        <>
+        <article className={`project-card${project.image ? '' : ' project-card--no-image'}`}>
             <div className='project-card__info'>
                 <div className='project-card__header'>
                     <a
@@ -62,32 +76,44 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     })}
                 </ul>
             </div>
-            {project.image ? (
-                <div className='project-card__image-wrapper'>
+            {project.image && (
+                <button
+                    type='button'
+                    className='project-card__image-button'
+                    onClick={() => setShowImage(true)}
+                    aria-label={`Ver imagen de ${project.name} en grande`}
+                >
                     <img
                         src={project.image}
                         alt={project.name}
                         className='project-card__image'
                     />
-                </div>
-            ) : (
-                <div className='project-card__image-wrapper project-card__image-wrapper--placeholder'>
-                    <svg
-                        className='project-card__image-placeholder-icon'
-                        viewBox='0 0 24 24'
-                        fill='none'
-                        stroke='currentColor'
-                        strokeWidth='1.5'
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        aria-hidden='true'
-                    >
-                        <rect x='3' y='3' width='18' height='18' rx='2' />
-                        <circle cx='8.5' cy='8.5' r='1.5' />
-                        <path d='M21 15l-5-5L5 21' />
-                    </svg>
-                </div>
+                </button>
             )}
         </article>
+        {showImage && project.image && createPortal(
+            <div
+                className='project-card__overlay'
+                ref={overlayRef}
+                onClick={e => { if (e.target === overlayRef.current) setShowImage(false) }}
+            >
+                <div className='project-card__floating'>
+                    <button
+                        className='project-card__floating-close'
+                        onClick={() => setShowImage(false)}
+                        aria-label='Cerrar'
+                    >
+                        ✕
+                    </button>
+                    <img
+                        src={project.image}
+                        alt={project.name}
+                        className='project-card__floating-image'
+                    />
+                </div>
+            </div>,
+            document.body
+        )}
+        </>
     )
 }
