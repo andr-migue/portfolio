@@ -20,6 +20,7 @@ const iconSlugs: Record<string, string> = {
     Vite: 'vite',
     CSS: 'css',
     Godot: 'godot',
+    Jupyter: 'jupyter',
     LinkedIn: 'linkedin',
     X: 'twitter',
     Telegram: 'telegram',

@@ -17,7 +17,7 @@ export const projects: Project[] = [
         language: 'TypeScript',
         stars: 0,
         forks: 0,
-        tags: ['React', 'TypeScript', 'Vite'],
+        tags: ['React', 'CSS', 'Vite'],
     },
     {
         name: 'Mistborn Maze',
@@ -56,7 +56,7 @@ export const projects: Project[] = [
         language: 'C++',
         stars: 1,
         forks: 0,
-        tags: ['Algorithms', 'Data Structures', 'Competitive Programming', 'Graph Algorithms'],
+        tags: ['Algorithms', 'Data Structures', 'Competitive Programming'],
     },
     {
         name: 'dsa-with-rust',
@@ -92,6 +92,24 @@ export const projects: Project[] = [
         language: 'TeX',
         stars: 1,
         forks: 0,
-        tags: ['LaTeX', 'Matplotlib', 'SymPy', 'Numerical Analysis'],
+        tags: ['Matplotlib', 'SymPy', 'Numerical Analysis'],
+    },
+    {
+        name: 'minigrep',
+        description: 'Command-line grep-like tool built in Rust that searches for a query string within a file, supporting case-sensitive and case-insensitive matching via an environment variable flag. Covers error handling with Result, trait-based abstraction, and unit testing — implemented without external dependencies.',
+        url: 'https://github.com/andr-migue/minigrep',
+        language: 'Rust',
+        stars: 0,
+        forks: 0,
+        tags: ['CLI', 'Systems Programming', 'File I/O'],
+    },
+    {
+        name: 'ODEs-NumMath-Project',
+        description: 'Numerical mathematics project implementing ODE solvers and phase plane analysis using Python\'s scientific stack (NumPy, SciPy, Matplotlib and SymPy) with interactive Jupyter notebooks for visualizing solution trajectories and stability regions.',
+        url: 'https://github.com/andr-migue/ODEs-NumMath-Project',
+        language: 'Python',
+        stars: 1,
+        forks: 0,
+        tags: ['Jupyter','Numerical Methods', 'SciPy', 'Matplotlib'],
     },
 ]
