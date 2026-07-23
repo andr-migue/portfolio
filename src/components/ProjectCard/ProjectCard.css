@@ -155,6 +155,7 @@
     border: 1px solid var(--color-border);
     display: block;
     width: 100%;
+    position: relative;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -169,6 +170,19 @@
     height: auto;
 }
 
+.project-card__image-count {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    background: color-mix(in srgb, var(--color-neutral-11) 65%, transparent);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    pointer-events: none;
+}
+
 .project-card__overlay {
     position: fixed;
     inset: 0;
@@ -179,13 +193,6 @@
     justify-content: center;
     padding: var(--space-md);
     animation: projectOverlayIn 0.15s ease;
-}
-
-.project-card__floating {
-    position: relative;
-    max-width: 90vmin;
-    max-height: 90vmin;
-    animation: projectFloatingIn 0.2s ease;
 }
 
 .project-card__floating-image {
@@ -221,6 +228,65 @@
 .project-card__floating-close:hover {
     background: var(--color-accent-subtle);
     color: var(--color-accent);
+}
+
+.project-card__floating {
+    position: relative;
+    max-width: 90vmin;
+    max-height: 90vmin;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    animation: projectFloatingIn 0.2s ease;
+}
+
+.project-card__carousel-prev,
+.project-card__carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: color-mix(in srgb, var(--color-neutral-11) 55%, transparent);
+    border: none;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 1.6rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease;
+    z-index: 1;
+}
+
+.project-card__carousel-prev { left: 0.5rem; }
+.project-card__carousel-next { right: 0.5rem; }
+
+.project-card__carousel-prev:hover,
+.project-card__carousel-next:hover {
+    background: color-mix(in srgb, var(--color-neutral-11) 80%, transparent);
+}
+
+.project-card__carousel-dots {
+    display: flex;
+    gap: 0.45rem;
+}
+
+.project-card__carousel-dot {
+    all: unset;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--color-border) 80%, transparent);
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.project-card__carousel-dot--active {
+    background: var(--color-accent);
+    transform: scale(1.25);
 }
 
 @keyframes projectOverlayIn {

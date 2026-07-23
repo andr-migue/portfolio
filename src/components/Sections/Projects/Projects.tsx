@@ -3,8 +3,8 @@ import { projects } from '../../../contents/projects'
 import ProjectCard from '../../ProjectCard/ProjectCard'
 
 export default function Projects() {
-    const featured = projects.filter(p => p.image)
-    const secondary = projects.filter(p => !p.image)
+    const featured = projects.filter(p => p.imageFolder)
+    const secondary = projects.filter(p => !p.imageFolder)
 
     return (
         <section className='projects'>

@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom'
 import './ProjectCard.css'
 import type { Project } from '../../contents/projects'
 import { getIcon } from '../../contents/icons'
+import { getProjectImages } from '../../contents/projectImages'
 
 interface ProjectCardProps {
     project: Project
@@ -10,21 +11,32 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
     const languageIcon = getIcon(project.language)
-    const [showImage, setShowImage] = useState(false)
+    const images = project.imageFolder ? getProjectImages(project.imageFolder) : []
+    const hasImages = images.length > 0
+
+    const [showCarousel, setShowCarousel] = useState(false)
+    const [index, setIndex] = useState(0)
     const overlayRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        if (!showImage) return
+        if (!showCarousel) return
         function handleKey(e: KeyboardEvent) {
-            if (e.key === 'Escape') setShowImage(false)
+            if (e.key === 'Escape') setShowCarousel(false)
+            if (e.key === 'ArrowRight') setIndex(i => (i + 1) % images.length)
+            if (e.key === 'ArrowLeft') setIndex(i => (i - 1 + images.length) % images.length)
         }
         document.addEventListener('keydown', handleKey)
         return () => document.removeEventListener('keydown', handleKey)
-    }, [showImage])
+    }, [showCarousel, images.length])
+
+    function openCarousel() {
+        setIndex(0)
+        setShowCarousel(true)
+    }
 
     return (
         <>
-        <article className={`project-card${project.image ? '' : ' project-card--no-image'}`}>
+        <article className={`project-card${hasImages ? '' : ' project-card--no-image'}`}>
             <div className='project-card__info'>
                 <div className='project-card__header'>
                     <a
@@ -76,40 +88,71 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     })}
                 </ul>
             </div>
-            {project.image && (
+            {hasImages && (
                 <button
                     type='button'
                     className='project-card__image-button'
-                    onClick={() => setShowImage(true)}
-                    aria-label={`Ver imagen de ${project.name} en grande`}
+                    onClick={openCarousel}
+                    aria-label={`Ver imágenes de ${project.name}`}
                 >
                     <img
-                        src={project.image}
+                        src={images[0]}
                         alt={project.name}
                         className='project-card__image'
                     />
+                    {images.length > 1 && (
+                        <span className='project-card__image-count'>{images.length}</span>
+                    )}
                 </button>
             )}
         </article>
-        {showImage && project.image && createPortal(
+        {showCarousel && hasImages && createPortal(
             <div
                 className='project-card__overlay'
                 ref={overlayRef}
-                onClick={e => { if (e.target === overlayRef.current) setShowImage(false) }}
+                onClick={e => { if (e.target === overlayRef.current) setShowCarousel(false) }}
             >
                 <div className='project-card__floating'>
                     <button
                         className='project-card__floating-close'
-                        onClick={() => setShowImage(false)}
+                        onClick={() => setShowCarousel(false)}
                         aria-label='Cerrar'
                     >
                         ✕
                     </button>
                     <img
-                        src={project.image}
-                        alt={project.name}
+                        src={images[index]}
+                        alt={`${project.name} ${index + 1} de ${images.length}`}
                         className='project-card__floating-image'
                     />
+                    {images.length > 1 && (
+                        <>
+                            <button
+                                className='project-card__carousel-prev'
+                                onClick={() => setIndex(i => (i - 1 + images.length) % images.length)}
+                                aria-label='Anterior'
+                            >
+                                ‹
+                            </button>
+                            <button
+                                className='project-card__carousel-next'
+                                onClick={() => setIndex(i => (i + 1) % images.length)}
+                                aria-label='Siguiente'
+                            >
+                                ›
+                            </button>
+                            <div className='project-card__carousel-dots'>
+                                {images.map((_, i) => (
+                                    <button
+                                        key={i}
+                                        className={`project-card__carousel-dot${i === index ? ' project-card__carousel-dot--active' : ''}`}
+                                        onClick={() => setIndex(i)}
+                                        aria-label={`Imagen ${i + 1}`}
+                                    />
+                                ))}
+                            </div>
+                        </>
+                    )}
                 </div>
             </div>,
             document.body

@@ -6,7 +6,7 @@ export interface Project {
     stars: number
     forks: number
     tags: string[]
-    image?: string
+    imageFolder?: string
 }
 
 export const projects: Project[] = [
@@ -27,7 +27,7 @@ export const projects: Project[] = [
         stars: 3,
         forks: 0,
         tags: ['Godot', 'Procedural Generation', 'Multiplayer', 'Game Dev'],
-        image: '/images/projects/Mistborn Maze.png'
+        imageFolder: 'Mistborn Maze'
     },
     {
         name: 'BrushBot-3000',
@@ -37,7 +37,7 @@ export const projects: Project[] = [
         stars: 4,
         forks: 0,
         tags: ['Godot', 'Interpreter', 'Compiler Design', 'Custom Language'],
-        image: '/images/projects/BrushBot-3000.png'
+        imageFolder: 'BrushBot-3000'
     },
     {
         name: 'Proyecto-SMIPS-2025-2026',
@@ -47,7 +47,7 @@ export const projects: Project[] = [
         stars: 1,
         forks: 0,
         tags: ['Computer Architecture', 'MIPS', 'Logisim', 'Digital Circuits'],
-        image: '/images/projects/SMIPS.png'
+        imageFolder: 'SMIPS'
     },
     {
         name: 'data-structures-and-algorithms',
