@@ -11,15 +11,14 @@ export const contact = {
     },
     meta: {
         timezone: 'UTC-4 (Havana)',
-        responseTime: 'Respondo en 12-24h',
         languages: 'Español - English',
     },
     socials: [
-        { name: 'LinkedIn',  url: 'https://linkedin.com/in/TODO' },
-        { name: 'X',         url: 'https://x.com/TODO' },
-        { name: 'Telegram',  url: 'https://t.me/TODO' },
-        { name: 'Discord',   url: 'https://discord.com/users/TODO' },
-        { name: 'Instagram', url: 'https://instagram.com/TODO' },
+        { name: 'LinkedIn',  url: 'https://www.linkedin.com/in/miguel-zamora-3005523aa/' },
+        { name: 'X',         url: 'https://x.com/andr_migue' },
+        { name: 'Telegram',  url: 'https://t.me/andr_migue' },
+        { name: 'Discord',   url: 'https://discord.com/users/andr_migue' },
+        { name: 'Instagram', url: 'https://instagram.com/andr_migue/' },
     ],
     cvUrl: '/cv/miguel-cazorla-cv.pdf',
 }
