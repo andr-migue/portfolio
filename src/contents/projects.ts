@@ -20,22 +20,24 @@ export const projects: Project[] = [
         tags: ['React', 'Vite', 'CSS'],
     },
     {
-        name: 'Mistborn-Maze',
-        description: 'Multiplayer procedural maze game built in Unity. Players navigate through dynamically generated mazes in real-time.',
+        name: 'Mistborn Maze',
+        description: 'Multiplayer procedural maze game built in Godot Engine. Players navigate through dynamically generated mazes in real time filled with traps and enemies, competing to escape.',
         url: 'https://github.com/andr-migue/Mistborn-Maze',
         language: 'C#',
         stars: 3,
         forks: 0,
-        tags: ['Godot', 'Multiplayer', 'Procedural Generation', 'Game Dev'],
+        tags: ['Godot', '2 - Players', 'Procedural Generation', 'Game Dev'],
+        image: '/public/images/Mistborn Maze.png'
     },
     {
         name: 'BrushBot-3000',
-        description: 'Autonomous robot simulation with brush mechanics built in C#.',
+        description: 'Aplicación desarrollada en Godot Engine que te permite programar para crear dibujos y arte pixelado. Mediante un lenguaje de scripting personalizado y un interprete creado puramente en C#. Es una herramienta fantástica y educativa para sumergirse en los conceptos básicos de la programación y desatar tu creatividad gráfica.',
         url: 'https://github.com/andr-migue/BrushBot-3000',
         language: 'C#',
         stars: 4,
         forks: 0,
-        tags: ['Godot', 'Simulation'],
+        tags: ['Godot', 'Interpreter', 'Compiler', 'Code Editor'],
+        image: '/public/images/BrushBot-3000.png'
     },
     {
         name: 'data-structures-and-algorithms',
@@ -75,12 +77,13 @@ export const projects: Project[] = [
     },
     {
         name: 'Proyecto-SMIPS-2025-2026',
-        description: 'Academic simulation project for systems modeling and performance analysis.',
+        description: 'Academic simulation project for  Arquitectura de Computadoras. Recreacion de un microprocesador de 32 bits usando la herramienta Logisim.',
         url: 'https://github.com/andr-migue/Proyecto-SMIPS-2025-2026',
         language: 'Python',
         stars: 1,
         forks: 0,
-        tags: ['Simulation', 'Academic'],
+        tags: ['Simulation', 'Academic', 'Micro'],
+        image: '/public/images/SMIPS.png'
     },
     {
         name: 'Riemann-Integrable',

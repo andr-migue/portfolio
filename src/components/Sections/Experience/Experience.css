@@ -1,0 +1,87 @@
+.experience {
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.experience__title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.experience__timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.experience__row-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Espacio inferior para que se vea el tramo vertical del timeline */
+.experience__row-wrapper--drops-right,
+.experience__row-wrapper--drops-left {
+    padding-bottom: var(--space-md);
+}
+
+/* Tramo vertical con esquinas redondeadas: la caja se dibuja con bordes
+   (top+right+bottom o top+left+bottom) para que los radios formen la curva
+   que conecta la línea horizontal de esta fila con la de la siguiente. */
+.experience__row-wrapper--drops-right::after,
+.experience__row-wrapper--drops-left::after {
+    content: '';
+    position: absolute;
+    top: 7px;
+    bottom: -9px;
+    width: 12px;
+    border-top: 2px solid var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
+    z-index: 0;
+}
+
+.experience__row-wrapper--drops-right::after {
+    right: 0;
+    border-right: 2px solid var(--color-accent);
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.experience__row-wrapper--drops-left::after {
+    left: 0;
+    border-left: 2px solid var(--color-accent);
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+/* Fila de cards */
+.experience__row {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.experience__row--reversed {
+    flex-direction: row-reverse;
+}
+
+/* Línea horizontal que corre por los nodos de la fila */
+.experience__row::before {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: 12px;
+    right: 12px;
+    height: 2px;
+    background: var(--color-accent);
+    z-index: 0;
+}
+
+.experience__row > .timeline-card {
+    padding: 0 var(--space-sm);
+}
