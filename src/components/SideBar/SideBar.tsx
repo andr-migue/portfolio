@@ -43,7 +43,7 @@ export default function SideBar({ active, onSelect, theme, toggleTheme }: SideBa
             <div className='profile-card'>
                 <button className='theme-button' onClick={toggleTheme}>
                     <img
-                        src={theme === 'light' ? '/icons/moon.svg' : '/icons/sun.svg'}
+                        src={`${import.meta.env.BASE_URL}icons/${theme === 'light' ? 'moon' : 'sun'}.svg`}
                         alt='Toggle theme'
                         className='theme-button_icon'
                     />
@@ -54,7 +54,7 @@ export default function SideBar({ active, onSelect, theme, toggleTheme }: SideBa
                     onClick={() => setShowImage(true)}
                     aria-label='Ver foto de perfil en grande'
                 >
-                    <img src='images/hero.jpg' alt='Profile Image' className='profile-card__image'/>
+                    <img src={`${import.meta.env.BASE_URL}images/hero.jpg`} alt='Profile Image' className='profile-card__image'/>
                 </button>
                 <h2 className='profile-card__name'>Miguel Cazorla Zamora</h2>
                 <p className='profile-card__role'>Fullstack Software Developer</p>
@@ -73,7 +73,7 @@ export default function SideBar({ active, onSelect, theme, toggleTheme }: SideBa
                             onClick={() => copy('email', EMAIL)}
                             aria-label='Copiar email'
                         >
-                            <img src='/icons/copy.svg' alt='' aria-hidden='true' />
+                            <img src={`${import.meta.env.BASE_URL}icons/copy.svg`} alt='' aria-hidden='true' />
                             {copied === 'email' && (
                                 <span className='sidebar-fields__copied'>¡Copied!</span>
                             )}
@@ -90,7 +90,7 @@ export default function SideBar({ active, onSelect, theme, toggleTheme }: SideBa
                             onClick={() => copy('phone', PHONE)}
                             aria-label='Copiar teléfono'
                         >
-                            <img src='/icons/copy.svg' alt='' aria-hidden='true' />
+                            <img src={`${import.meta.env.BASE_URL}icons/copy.svg`} alt='' aria-hidden='true' />
                             {copied === 'phone' && (
                                 <span className='sidebar-fields__copied'>¡Copied!</span>
                             )}
@@ -145,7 +145,7 @@ export default function SideBar({ active, onSelect, theme, toggleTheme }: SideBa
                             ✕
                         </button>
                         <img
-                            src='images/hero.jpg'
+                            src={`${import.meta.env.BASE_URL}images/hero.jpg`}
                             alt='Profile Image'
                             className='profile-card__floating-image'
                         />

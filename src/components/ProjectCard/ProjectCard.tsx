@@ -49,11 +49,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     </a>
                     <div className='project-card__meta'>
                         <span className='project-card__stat'>
-                            <img src='/icons/star.svg' alt='stars' className='project-card__stat-icon' />
+                            <img src={`${import.meta.env.BASE_URL}icons/star.svg`} alt='stars' className='project-card__stat-icon' />
                             {project.stars}
                         </span>
                         <span className='project-card__stat'>
-                            <img src='/icons/fork.svg' alt='forks' className='project-card__stat-icon' />
+                            <img src={`${import.meta.env.BASE_URL}icons/fork.svg`} alt='forks' className='project-card__stat-icon' />
                             {project.forks}
                         </span>
                     </div>

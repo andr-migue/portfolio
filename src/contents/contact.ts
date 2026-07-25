@@ -20,5 +20,5 @@ export const contact = {
         { name: 'Discord',   url: 'https://discord.com/users/andr_migue' },
         { name: 'Instagram', url: 'https://instagram.com/andr_migue/' },
     ],
-    cvUrl: '/cv/miguel-cazorla-cv.pdf',
+    cvUrl: `${import.meta.env.BASE_URL}cv/miguel-cazorla-cv.pdf`,
 }

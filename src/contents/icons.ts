@@ -35,5 +35,5 @@ const iconSlugs: Record<string, string> = {
 
 export function getIcon(name: string): string | undefined {
     const slug = iconSlugs[name]
-    return slug ? `/icons/${slug}.svg` : undefined
+    return slug ? `${import.meta.env.BASE_URL}icons/${slug}.svg` : undefined
 }

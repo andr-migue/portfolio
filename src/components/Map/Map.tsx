@@ -4,7 +4,7 @@ import './Map.css'
 import { contact } from '../../contents/contact'
 
 const markerIcon = L.icon({
-    iconUrl: '/icons/map-marker.svg',
+    iconUrl: `${import.meta.env.BASE_URL}icons/map-marker.svg`,
     iconSize: [32, 44],
     iconAnchor: [16, 43],
     popupAnchor: [0, -38],
