@@ -119,13 +119,11 @@
 }
 
 .project-card__tag {
-    font-size: 0.8rem;
-    font-weight: 500;
-    padding: 0.2rem 0.65rem;
-    border-radius: 6px;
-    border: 1.5px solid var(--color-accent);
-    background: var(--color-accent-subtle);
-    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    background: var(--color-surface-content);
+    color: var(--color-text-muted);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
 }
 
 .project-card__tag--icon {

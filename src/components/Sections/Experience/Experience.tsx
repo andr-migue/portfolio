@@ -14,7 +14,7 @@ export default function Experience() {
             <div className='experience__timeline'>
                 {rows.map((row, rowIndex) => {
                     const isReversed = rowIndex % 2 === 1
-                    const orderedRow = isReversed ? [...row].reverse() : row
+                    const orderedRow = row
                     const isLast = rowIndex === rows.length - 1
                     const dropClass = isLast
                         ? ''
@@ -26,14 +26,14 @@ export default function Experience() {
                         <div key={rowIndex} className={`experience__row-wrapper${dropClass}`}>
                             <div className={`experience__row${isReversed ? ' experience__row--reversed' : ''}`}>
                                 {orderedRow.map((exp) => {
-                                    const related = exp.projectName
-                                        ? projects.find(p => p.name === exp.projectName)
-                                        : undefined
+                                    const related = exp.projectNames
+                                        ?.map(name => projects.find(p => p.name === name))
+                                        .filter((p): p is typeof projects[number] => Boolean(p))
                                     return (
                                         <TimeLineCard
-                                            key={exp.title + exp.company}
+                                            key={exp.title + exp.company + exp.startDate}
                                             experience={exp}
-                                            relatedProject={related}
+                                            relatedProjects={related}
                                         />
                                     )
                                 })}

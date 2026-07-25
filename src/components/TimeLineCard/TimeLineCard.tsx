@@ -7,21 +7,21 @@ import ProjectCard from '../ProjectCard/ProjectCard'
 
 interface TimeLineCardProps {
     experience: Experience
-    relatedProject?: Project
+    relatedProjects?: Project[]
 }
 
-export default function TimeLineCard({ experience, relatedProject }: TimeLineCardProps) {
-    const [showProject, setShowProject] = useState(false)
+export default function TimeLineCard({ experience, relatedProjects }: TimeLineCardProps) {
+    const [activeProject, setActiveProject] = useState<Project | null>(null)
     const overlayRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        if (!showProject) return
+        if (!activeProject) return
         function handleKey(e: KeyboardEvent) {
-            if (e.key === 'Escape') setShowProject(false)
+            if (e.key === 'Escape') setActiveProject(null)
         }
         document.addEventListener('keydown', handleKey)
         return () => document.removeEventListener('keydown', handleKey)
-    }, [showProject])
+    }, [activeProject])
 
     return (
         <article className='timeline-card'>
@@ -65,33 +65,36 @@ export default function TimeLineCard({ experience, relatedProject }: TimeLineCar
                     })}
                 </ul>
 
-                {relatedProject && (
+                {relatedProjects && relatedProjects.length > 0 && (
                     <div className='timeline-card__project'>
-                        <button
-                            className='timeline-card__project-trigger'
-                            onClick={() => setShowProject(true)}
-                        >
-                            {relatedProject.name}
-                        </button>
+                        {relatedProjects.map(project => (
+                            <button
+                                key={project.name}
+                                className='timeline-card__project-trigger'
+                                onClick={() => setActiveProject(project)}
+                            >
+                                {project.name}
+                            </button>
+                        ))}
                     </div>
                 )}
             </div>
 
-            {showProject && relatedProject && (
+            {activeProject && (
                 <div
                     className='timeline-card__overlay'
                     ref={overlayRef}
-                    onClick={e => { if (e.target === overlayRef.current) setShowProject(false) }}
+                    onClick={e => { if (e.target === overlayRef.current) setActiveProject(null) }}
                 >
                     <div className='timeline-card__floating'>
                         <button
                             className='timeline-card__floating-close'
-                            onClick={() => setShowProject(false)}
+                            onClick={() => setActiveProject(null)}
                             aria-label='Cerrar'
                         >
                             ✕
                         </button>
-                        <ProjectCard project={relatedProject} />
+                        <ProjectCard project={activeProject} />
                     </div>
                 </div>
             )}
