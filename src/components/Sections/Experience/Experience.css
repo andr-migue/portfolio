@@ -85,3 +85,42 @@
 .experience__row > .timeline-card {
     padding: 0 var(--space-sm);
 }
+
+/* Por debajo de tres columnas el zigzag no cabe: las filas se disuelven
+   (display: contents) y las tarjetas cuelgan de una única línea vertical. */
+@media (max-width: 900px) {
+    .experience {
+        padding: var(--space-sm);
+    }
+
+    .experience__timeline {
+        position: relative;
+        gap: var(--space-sm);
+        padding-left: 1.25rem;
+    }
+
+    .experience__timeline::before {
+        content: '';
+        position: absolute;
+        top: 7px;
+        bottom: 7px;
+        left: 6px;
+        width: 2px;
+        background: var(--color-accent);
+    }
+
+    .experience__row-wrapper,
+    .experience__row {
+        display: contents;
+    }
+
+    .experience__row-wrapper--drops-right::after,
+    .experience__row-wrapper--drops-left::after,
+    .experience__row::before {
+        content: none;
+    }
+
+    .experience__row > .timeline-card {
+        padding: 0;
+    }
+}

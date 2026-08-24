@@ -3,9 +3,12 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  padding: 1.5rem 1.2rem;
+  min-height: 0;
+  padding: clamp(0.9rem, 2.2vh, 1.5rem) 1.2rem;
   background: var(--color-surface);
-  gap: 3rem;
+  gap: clamp(1rem, 4vh, 3rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .profile-card {
@@ -63,8 +66,9 @@
 
 .profile-card__image {
   display: block;
-  width: 230px;
-  height: 230px;
+  width: clamp(110px, 12vw + 4vh, 230px);
+  aspect-ratio: 1;
+  height: auto;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--color-border);
@@ -201,12 +205,14 @@
 }
 
 .sidebar-fields__value--copyable {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
   white-space: normal;
   overflow: visible;
+  overflow-wrap: anywhere;
 }
 
 .sidebar-fields__copy {
@@ -310,4 +316,110 @@
   width: 30px;
   height: 30px;
   object-fit: contain;
+}
+
+/* Sidebar en una sola columna: se aprieta el bloque de datos para que la
+   navegación siga siendo visible sin scroll. */
+@media (max-width: 1100px) {
+  .profile-card__name {
+    font-size: 1.05rem;
+  }
+
+  .profile-card__role {
+    font-size: 0.95rem;
+  }
+
+  .sidebar {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .sidebar-fields__name {
+    font-size: 0.8rem;
+  }
+
+  /* El email es la línea más larga: a este ancho necesita bajar de cuerpo
+     para no partirse a mitad de palabra. */
+  .sidebar-fields__value {
+    font-size: 0.78rem;
+  }
+
+  .sidebar-fields {
+    gap: 0.5rem;
+  }
+
+  .profile-card {
+    padding-bottom: 0.75rem;
+  }
+
+  .sidebar-socials__link {
+    width: 28px;
+    height: 28px;
+  }
+
+  .sidebar-socials__icon {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* Cabecera horizontal: la foto, el nombre y el tema en una fila, la
+   navegación debajo. Los datos de contacto se omiten porque la sección
+   Contact ya los muestra completos. */
+@media (max-width: 900px) {
+  .sidebar {
+    justify-content: flex-start;
+    height: auto;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+    overflow: visible;
+  }
+
+  .profile-card {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      'avatar name theme'
+      'avatar role theme';
+    align-items: center;
+    column-gap: 0.75rem;
+    row-gap: 0;
+    text-align: left;
+    padding-bottom: 0;
+  }
+
+  .profile-card__image-button {
+    grid-area: avatar;
+  }
+
+  .profile-card__image {
+    width: 56px;
+  }
+
+  .profile-card__name {
+    grid-area: name;
+    align-self: end;
+    font-size: 1rem;
+    line-height: 1.25;
+  }
+
+  .profile-card__role {
+    grid-area: role;
+    align-self: start;
+    font-size: 0.85rem;
+    line-height: 1.25;
+  }
+
+  .theme-button {
+    grid-area: theme;
+    position: static;
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .sidebar-fields {
+    display: none;
+  }
 }

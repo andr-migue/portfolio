@@ -1,11 +1,23 @@
 .page {
     display: grid;
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: clamp(240px, 22vw, 320px) minmax(0, 1fr);
     height: 100%;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .content {
     background: var(--color-surface-content);
+    min-width: 0;
     overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+/* Por debajo de dos columnas la sidebar se convierte en cabecera y el
+   contenido ocupa el resto del alto disponible. */
+@media (max-width: 900px) {
+    .page {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto minmax(0, 1fr);
+    }
 }

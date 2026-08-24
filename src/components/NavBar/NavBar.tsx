@@ -16,16 +16,28 @@ export default function NavBar({ sections, active, onSelect, vertical = false }:
     useEffect(() => {
         const nav = navRef.current
         const indicator = indicatorRef.current
-        const button = buttonRef.current[active]
 
-        if (!nav || !indicator || !button) return
+        if (!nav || !indicator) return
 
-        const navRect = nav.getBoundingClientRect()
-        const buttonRect = button.getBoundingClientRect()
+        function syncIndicator() {
+            const button = buttonRef.current[active]
+            if (!nav || !indicator || !button) return
 
-        indicator.style.width = `${buttonRect.width}px`
-        indicator.style.height = `${buttonRect.height}px`
-        indicator.style.transform = `translate(${buttonRect.left - navRect.left}px, ${buttonRect.top - navRect.top}px)`
+            // offsetLeft/offsetTop son relativos al nav (position: relative) y no
+            // dependen del scroll, a diferencia de getBoundingClientRect.
+            indicator.style.width = `${button.offsetWidth}px`
+            indicator.style.height = `${button.offsetHeight}px`
+            indicator.style.transform = `translate(${button.offsetLeft}px, ${button.offsetTop}px)`
+        }
+
+        syncIndicator()
+
+        // El nav pasa de vertical a horizontal según el ancho del viewport:
+        // el indicador debe recolocarse cuando cambia el layout.
+        const observer = new ResizeObserver(syncIndicator)
+        observer.observe(nav)
+
+        return () => observer.disconnect()
     }, [active])
 
     return (

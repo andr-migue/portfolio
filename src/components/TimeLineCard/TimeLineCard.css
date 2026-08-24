@@ -178,6 +178,35 @@ a.timeline-card__company:hover {
     color: var(--color-accent);
 }
 
+/* En vertical el nodo se sale a la izquierda para engancharse a la línea
+   del timeline y la tarjeta ocupa todo el ancho. */
+@media (max-width: 900px) {
+    .timeline-card__node {
+        position: absolute;
+        top: 0;
+        left: -1.25rem;
+        margin-bottom: 0;
+    }
+
+    .timeline-card__floating {
+        max-width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .timeline-card__body {
+        transition: none;
+    }
+
+    .timeline-card__body:hover {
+        transform: none;
+    }
+
+    .timeline-card__floating {
+        animation: none;
+    }
+}
+
 @keyframes floatingIn {
     from {
         opacity: 0;

@@ -1,10 +1,12 @@
 .about {
-    padding: var(--space-md);
+    padding: clamp(1rem, 3vw, 2rem);
     display: flex;
 }
 
 .about__content {
     width: 100%;
+    min-width: 0;
+    max-width: 75ch;
     color: var(--color-text);
     font-size: var(--font-size-base);
     line-height: 1.7;
@@ -15,7 +17,7 @@
 }
 
 .about__title {
-    font-size: var(--font-size-xl);
+    font-size: clamp(1.5rem, 4vw, var(--font-size-xl));
     font-weight: 700;
     line-height: 1.2;
     color: var(--color-text);
