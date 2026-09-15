@@ -1,7 +1,13 @@
+export interface Repo {
+    label: string
+    url: string
+}
+
 export interface Project {
     name: string
     description: string
-    url: string
+    url?: string
+    repos?: Repo[]
     language: string
     stars: number
     forks: number
@@ -27,6 +33,7 @@ export const projects: Project[] = [
         stars: 0,
         forks: 0,
         tags: ['React', 'Vite', 'CSS', 'Vitest'],
+        imageFolder: 'Damero'
     },
     {
         name: 'ToDo',
@@ -36,6 +43,19 @@ export const projects: Project[] = [
         stars: 0,
         forks: 0,
         tags: ['React', '.NET', 'PostgreSQL', 'Docker'],
+    },
+    {
+        name: 'Shelfie',
+        description: 'Full-stack personal library manager built end to end to practice FastAPI and Beanie: a Python backend that searches and normalizes books from the Open Library API into MongoDB, paired with a React 19 + TypeScript frontend, shipped as two independent repositories.',
+        repos: [
+            { label: 'Backend', url: 'https://github.com/andr-migue/shelfie-backend' },
+            { label: 'Frontend', url: 'https://github.com/andr-migue/shelfie-frontend' },
+        ],
+        language: 'Python',
+        stars: 0,
+        forks: 0,
+        tags: ['FastAPI', 'MongoDB', 'React', 'Docker'],
+        imageFolder: 'Shelfie'
     },
     {
         name: 'Mistborn Maze',

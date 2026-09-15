@@ -27,7 +27,7 @@ export const experiences: Experience[] = [
         endDate: 'Aug 2026',
         description: 'Summer break between the 4th and 5th semesters. Built this portfolio (React 19 + Vite), damero — a fully client-side QR code generator with logo composition and localStorage history — and a full-stack to-do app pairing a .NET 10 minimal API over PostgreSQL with a React frontend. Continued part-time work at Wamasol throughout.',
         technologies: ['TypeScript', 'React', 'Vite', 'CSS', '.NET', 'PostgreSQL', 'Docker'],
-        projectNames: ['portfolio', 'damero', 'ToDo'],
+        projectNames: ['portfolio', 'damero', 'ToDo', 'Shelfie'],
     },
     {
         title: 'BSc CS Semester 4',

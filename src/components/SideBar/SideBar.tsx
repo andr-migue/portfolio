@@ -4,7 +4,7 @@ import NavBar from '../NavBar/NavBar'
 import { contact } from '../../contents/contact'
 import { getIcon } from '../../contents/icons'
 
-const sections = ['About', 'Experience', 'Projects', 'Contact']
+const sections = ['Projects', 'Experience','Contact']
 
 interface SideBarProps {
     active: number

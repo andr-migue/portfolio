@@ -39,14 +39,20 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <article className={`project-card${hasImages ? '' : ' project-card--no-image'}`}>
             <div className='project-card__info'>
                 <div className='project-card__header'>
-                    <a
-                        href={project.url}
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='project-card__name'
-                    >
-                        {project.name}
-                    </a>
+                    {project.repos ? (
+                        <span className='project-card__name'>
+                            {project.name}
+                        </span>
+                    ) : (
+                        <a
+                            href={project.url}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className='project-card__name'
+                        >
+                            {project.name}
+                        </a>
+                    )}
                     <div className='project-card__meta'>
                         <span className='project-card__stat'>
                             <img src={`${import.meta.env.BASE_URL}icons/star.svg`} alt='stars' className='project-card__stat-icon' />
@@ -58,6 +64,22 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                         </span>
                     </div>
                 </div>
+                {project.repos && (
+                    <ul className='project-card__repos'>
+                        {project.repos.map(repo => (
+                            <li key={repo.url}>
+                                <a
+                                    href={repo.url}
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='project-card__repo-link'
+                                >
+                                    {repo.label}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                )}
                 <p className='project-card__description'>{project.description}</p>
                 <ul className='project-card__tags'>
                     <li
