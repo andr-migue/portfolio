@@ -16,8 +16,8 @@
      Cada tamaño tiene un papel; ningún texto usa valores sueltos.
      xs   — micro: tooltips, contadores, badges
      sm   — secundario: títulos de sección (en mayúsculas), fechas,
-            etiquetas, texto de cards y acciones
-     base — cuerpo: párrafos principales, datos de la sidebar, navegación
+            etiquetas y acciones
+     base — cuerpo: párrafos, texto de cards, datos de la sidebar, navegación
      md   — títulos de card y rol del perfil
      lg   — nombre (h1)
      Pesos: regular para texto, semibold para títulos, etiquetas y acciones. */

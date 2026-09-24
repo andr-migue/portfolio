@@ -31,7 +31,7 @@ export default function TimeLine() {
                                         .filter((p): p is typeof projects[number] => Boolean(p))
                                     return (
                                         <TimeLineCard
-                                            key={exp.title + exp.company + exp.startDate}
+                                            key={exp.startDate + exp.title.en}
                                             experience={exp}
                                             relatedProjects={related}
                                         />

@@ -4,12 +4,14 @@ import './ProjectCard.css'
 import type { Project } from '../../contents/projects'
 import { getIcon } from '../../contents/icons'
 import { getProjectImages } from '../../contents/projectImages'
+import { useLanguage } from '../../i18n/language'
 
 interface ProjectCardProps {
     project: Project
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
+    const { t, l, tag } = useLanguage()
     const languageIcon = getIcon(project.language)
     const images = project.imageFolder ? getProjectImages(project.imageFolder) : []
     const hasImages = images.length > 0
@@ -55,11 +57,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     )}
                     <div className='project-card__meta'>
                         <span className='project-card__stat'>
-                            <img src={`${import.meta.env.BASE_URL}icons/star.svg`} alt='stars' className='project-card__stat-icon' />
+                            <img src={`${import.meta.env.BASE_URL}icons/star.svg`} alt={t.stars} title={t.stars} className='project-card__stat-icon' />
                             {project.stars}
                         </span>
                         <span className='project-card__stat'>
-                            <img src={`${import.meta.env.BASE_URL}icons/fork.svg`} alt='forks' className='project-card__stat-icon' />
+                            <img src={`${import.meta.env.BASE_URL}icons/fork.svg`} alt={t.forks} title={t.forks} className='project-card__stat-icon' />
                             {project.forks}
                         </span>
                     </div>
@@ -74,13 +76,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                                     rel='noopener noreferrer'
                                     className='project-card__repo-link'
                                 >
+                                    <img src={getIcon('GitHub')} alt='' aria-hidden='true' className='project-card__repo-icon' />
                                     {repo.label}
                                 </a>
                             </li>
                         ))}
                     </ul>
                 )}
-                <p className='project-card__description'>{project.description}</p>
+                <p className='project-card__description'>{l(project.description)}</p>
                 <ul className='project-card__tags'>
                     <li
                         className={`project-card__language${languageIcon ? ' project-card__language--icon' : ''}`}
@@ -92,18 +95,18 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                             project.language
                         )}
                     </li>
-                    {project.tags.map(tag => {
-                        const tagIcon = getIcon(tag)
+                    {project.tags.map(name => {
+                        const tagIcon = getIcon(name)
                         return (
                             <li
-                                key={tag}
+                                key={name}
                                 className={`project-card__tag${tagIcon ? ' project-card__tag--icon' : ''}`}
-                                title={tag}
+                                title={tag(name)}
                             >
                                 {tagIcon ? (
-                                    <img src={tagIcon} alt={tag} className='project-card__tag-icon' />
+                                    <img src={tagIcon} alt={name} className='project-card__tag-icon' />
                                 ) : (
-                                    tag
+                                    tag(name)
                                 )}
                             </li>
                         )
@@ -115,7 +118,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     type='button'
                     className='project-card__image-button'
                     onClick={openCarousel}
-                    aria-label={`Ver imágenes de ${project.name}`}
+                    aria-label={t.viewImages(project.name)}
                 >
                     <img
                         src={images[0]}
@@ -138,13 +141,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     <button
                         className='project-card__floating-close'
                         onClick={() => setShowCarousel(false)}
-                        aria-label='Cerrar'
+                        aria-label={t.close}
                     >
                         ✕
                     </button>
                     <img
                         src={images[index]}
-                        alt={`${project.name} ${index + 1} de ${images.length}`}
+                        alt={t.imageOf(project.name, index + 1, images.length)}
                         className='project-card__floating-image'
                     />
                     {images.length > 1 && (
@@ -152,14 +155,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                             <button
                                 className='project-card__carousel-prev'
                                 onClick={() => setIndex(i => (i - 1 + images.length) % images.length)}
-                                aria-label='Anterior'
+                                aria-label={t.previous}
                             >
                                 ‹
                             </button>
                             <button
                                 className='project-card__carousel-next'
                                 onClick={() => setIndex(i => (i + 1) % images.length)}
-                                aria-label='Siguiente'
+                                aria-label={t.next}
                             >
                                 ›
                             </button>
@@ -169,7 +172,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                                         key={i}
                                         className={`project-card__carousel-dot${i === index ? ' project-card__carousel-dot--active' : ''}`}
                                         onClick={() => setIndex(i)}
-                                        aria-label={`Imagen ${i + 1}`}
+                                        aria-label={t.image(i + 1)}
                                     />
                                 ))}
                             </div>

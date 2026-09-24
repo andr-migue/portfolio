@@ -3,6 +3,7 @@ import './TimeLineCard.css'
 import type { Experience } from '../../contents/experience'
 import type { Project } from '../../contents/projects'
 import { getIcon } from '../../contents/icons'
+import { useLanguage } from '../../i18n/language'
 import ProjectCard from '../ProjectCard/ProjectCard'
 
 interface TimeLineCardProps {
@@ -11,6 +12,7 @@ interface TimeLineCardProps {
 }
 
 export default function TimeLineCard({ experience, relatedProjects }: TimeLineCardProps) {
+    const { t, l, tag, period } = useLanguage()
     const [activeProject, setActiveProject] = useState<Project | null>(null)
     const overlayRef = useRef<HTMLDivElement>(null)
 
@@ -29,7 +31,7 @@ export default function TimeLineCard({ experience, relatedProjects }: TimeLineCa
             <div className='timeline-card__body'>
                 <div className='timeline-card__header'>
                     <h3 className='timeline-card__title'>
-                        {experience.title} <span className='timeline-card__prep'>at</span>{' '}
+                        {l(experience.title)} <span className='timeline-card__prep'>{experience.prep ? l(experience.prep) : t.at}</span>{' '}
                         {experience.companyUrl ? (
                             <a
                                 href={experience.companyUrl}
@@ -37,28 +39,28 @@ export default function TimeLineCard({ experience, relatedProjects }: TimeLineCa
                                 rel='noopener noreferrer'
                                 className='timeline-card__company'
                             >
-                                {experience.company}
+                                {l(experience.company)}
                             </a>
                         ) : (
-                            <span className='timeline-card__company'>{experience.company}</span>
+                            <span className='timeline-card__company timeline-card__company--plain'>{l(experience.company)}</span>
                         )}
                     </h3>
                     <span className='timeline-card__dates'>
-                        {experience.startDate} – {experience.endDate}
+                        {period(experience.startDate, experience.endDate)}
                     </span>
                 </div>
 
-                <p className='timeline-card__description'>{experience.description}</p>
+                <p className='timeline-card__description'>{l(experience.description)}</p>
 
                 <ul className='timeline-card__tech'>
                     {experience.technologies.map(tech => {
                         const icon = getIcon(tech)
                         return (
-                            <li key={tech} className='timeline-card__tech-item' title={tech}>
+                            <li key={tech} className='timeline-card__tech-item' title={tag(tech)}>
                                 {icon ? (
                                     <img src={icon} alt={tech} className='timeline-card__tech-icon' />
                                 ) : (
-                                    <span className='timeline-card__tech-label'>{tech}</span>
+                                    <span className='timeline-card__tech-label'>{tag(tech)}</span>
                                 )}
                             </li>
                         )
@@ -90,7 +92,7 @@ export default function TimeLineCard({ experience, relatedProjects }: TimeLineCa
                         <button
                             className='timeline-card__floating-close'
                             onClick={() => setActiveProject(null)}
-                            aria-label='Cerrar'
+                            aria-label={t.close}
                         >
                             ✕
                         </button>

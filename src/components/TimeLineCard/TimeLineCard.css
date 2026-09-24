@@ -59,6 +59,13 @@
     text-decoration: none;
 }
 
+/* Sin enlace (p. ej. unas vacaciones) no es una organización: va con el
+   mismo estilo que la preposición. */
+.timeline-card__company--plain {
+    color: var(--color-text-muted);
+    font-weight: var(--font-weight-regular);
+}
+
 a.timeline-card__company:hover {
     text-decoration: underline;
 }
@@ -69,7 +76,7 @@ a.timeline-card__company:hover {
 }
 
 .timeline-card__description {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-base);
     color: var(--color-text);
     line-height: 1.6;
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import DefaultPage from './pages/DefaultPage'
+import LanguageProvider from './i18n/LanguageProvider'
 
 export default function App() {
     const [theme, setTheme] = useState<'light' | 'dark'>('dark')
@@ -10,5 +11,9 @@ export default function App() {
 
     const toggleTheme = () => setTheme(t => t === 'light' ? 'dark' : 'light')
 
-    return <DefaultPage theme={theme} toggleTheme={toggleTheme} />
+    return (
+        <LanguageProvider>
+            <DefaultPage theme={theme} toggleTheme={toggleTheme} />
+        </LanguageProvider>
+    )
 }

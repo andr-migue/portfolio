@@ -170,9 +170,14 @@
 }
 
 .home__card-text {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-base);
     color: var(--color-text);
     line-height: 1.6;
+}
+
+.home__card-link--plain {
+    color: var(--color-text-muted);
+    font-weight: var(--font-weight-regular);
 }
 
 a.home__card-link:hover {
