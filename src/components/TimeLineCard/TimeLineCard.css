@@ -42,23 +42,20 @@
     gap: 0.25rem;
 }
 
-.timeline-card__title-group {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.4rem;
-}
-
 .timeline-card__title {
-    font-size: var(--font-size-base);
-    font-weight: 650;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
     color: var(--color-text);
 }
 
+.timeline-card__prep {
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text-muted);
+}
+
+/* La organización forma parte del título, como en las cards de Home. */
 .timeline-card__company {
-    font-size: var(--font-size-sm);
     color: var(--color-accent);
-    font-weight: 500;
     text-decoration: none;
 }
 
@@ -122,7 +119,7 @@ a.timeline-card__company:hover {
     padding: 0;
     cursor: pointer;
     font-size: var(--font-size-sm);
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     color: var(--color-accent);
     transition: color 0.2s ease;
     text-align: left;
@@ -164,7 +161,7 @@ a.timeline-card__company:hover {
     width: 28px;
     height: 28px;
     cursor: pointer;
-    font-size: 0.75rem;
+    font-size: var(--font-size-sm);
     color: var(--color-text-muted);
     display: flex;
     align-items: center;

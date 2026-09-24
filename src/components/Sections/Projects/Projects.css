@@ -12,8 +12,8 @@
 }
 
 .projects__secondary-title {
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--color-text-muted);

@@ -28,8 +28,8 @@ export default function TimeLineCard({ experience, relatedProjects }: TimeLineCa
             <div className='timeline-card__node' aria-hidden='true' />
             <div className='timeline-card__body'>
                 <div className='timeline-card__header'>
-                    <div className='timeline-card__title-group'>
-                        <h3 className='timeline-card__title'>{experience.title}</h3>
+                    <h3 className='timeline-card__title'>
+                        {experience.title} <span className='timeline-card__prep'>at</span>{' '}
                         {experience.companyUrl ? (
                             <a
                                 href={experience.companyUrl}
@@ -42,7 +42,7 @@ export default function TimeLineCard({ experience, relatedProjects }: TimeLineCa
                         ) : (
                             <span className='timeline-card__company'>{experience.company}</span>
                         )}
-                    </div>
+                    </h3>
                     <span className='timeline-card__dates'>
                         {experience.startDate} – {experience.endDate}
                     </span>

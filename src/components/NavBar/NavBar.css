@@ -51,8 +51,8 @@
   border: none;
   background: transparent;
   color: var(--color-text-muted);
-  font-size: 1rem;
-  font-weight: 550;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
   padding: 0 0.78rem;
   height: 2.2rem;
   border-radius: 8px;
@@ -88,7 +88,7 @@
     justify-content: center;
     text-align: center;
     height: 2.5rem;
-    font-size: 0.95rem;
+    font-size: var(--font-size-base);
   }
 }
 
@@ -99,7 +99,7 @@
 
   .navbar-vertical .navbar__button {
     padding: 0 0.35rem;
-    font-size: 0.82rem;
+    font-size: var(--font-size-sm);
   }
 }
 

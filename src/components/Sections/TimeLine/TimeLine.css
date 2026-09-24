@@ -5,12 +5,6 @@
     gap: var(--space-md);
 }
 
-.timeline__title {
-    font-size: var(--font-size-xl);
-    font-weight: 700;
-    color: var(--color-text);
-}
-
 .timeline__track {
     display: flex;
     flex-direction: column;

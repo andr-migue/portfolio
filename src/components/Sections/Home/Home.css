@@ -50,8 +50,8 @@
 /* Mismo estilo que el título "Other projects" para que todas las
    secciones compartan jerarquía. */
 .home__title {
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--color-text-muted);
@@ -63,7 +63,7 @@
     padding: 0;
     cursor: pointer;
     font-size: var(--font-size-sm);
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     color: var(--color-accent);
     white-space: nowrap;
 }
@@ -80,7 +80,7 @@
 }
 
 .home__lead {
-    font-size: 1.05rem;
+    font-size: var(--font-size-base);
     line-height: 1.7;
     color: var(--color-text);
 }
@@ -146,13 +146,13 @@
 }
 
 .home__card-title {
-    font-size: var(--font-size-base);
-    font-weight: 650;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
     color: var(--color-text);
 }
 
 .home__card-prep {
-    font-weight: 400;
+    font-weight: var(--font-weight-regular);
     color: var(--color-text-muted);
 }
 
@@ -182,7 +182,7 @@ a.home__card-link:hover {
 .home__bullets {
     padding-left: 1.2rem;
     color: var(--color-text);
-    font-size: 1.05rem;
+    font-size: var(--font-size-base);
     line-height: 1.7;
 }
 

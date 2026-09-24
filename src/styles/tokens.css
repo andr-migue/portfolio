@@ -12,13 +12,23 @@
   --color-secondary-hover: var(--color-secondary-6);
   --color-border: var(--color-neutral-1);
 
-  /* Typography */
+  /* Typography
+     Cada tamaño tiene un papel; ningún texto usa valores sueltos.
+     xs   — micro: tooltips, contadores, badges
+     sm   — secundario: títulos de sección (en mayúsculas), fechas,
+            etiquetas, texto de cards y acciones
+     base — cuerpo: párrafos principales, datos de la sidebar, navegación
+     md   — títulos de card y rol del perfil
+     lg   — nombre (h1)
+     Pesos: regular para texto, semibold para títulos, etiquetas y acciones. */
   --font-base: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
+  --font-size-md: 1.125rem;
   --font-size-lg: 1.25rem;
-  --font-size-xl: 2rem;
-  --font-size-2xl: 3rem;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
 
   /* Spacing */
   --space-xs: 0.5rem;

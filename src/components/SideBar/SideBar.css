@@ -115,7 +115,7 @@
   width: 32px;
   height: 32px;
   cursor: pointer;
-  font-size: 0.85rem;
+  font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   display: flex;
   align-items: center;
@@ -151,14 +151,14 @@
 }
 
 .profile-card__name {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
   color: var(--color-text);
 }
 
 .profile-card__role {
-  font-size: 1.1rem;
-  font-weight: 550;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
   color: var(--color-text-muted);
 }
 
@@ -173,8 +173,8 @@
 }
 
 .sidebar-fields__name {
-  font-size: 1rem;
-  font-weight: 550;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--color-text-muted);
@@ -182,8 +182,8 @@
 }
 
 .sidebar-fields__value {
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
   color: var(--color-text);
   white-space: nowrap;
   overflow: hidden;
@@ -213,7 +213,7 @@
 /* El email es la línea más larga: su cuerpo escala con el ancho de la
    sidebar para no partirse a mitad de palabra. */
 .sidebar-fields__email {
-  font-size: clamp(0.78rem, 0.2rem + 0.9vw, 1rem);
+  font-size: clamp(var(--font-size-xs), 0.2rem + 0.9vw, var(--font-size-base));
 }
 
 .sidebar-fields__actions {
@@ -261,8 +261,8 @@
   transform: translateX(-50%);
   background: var(--color-accent);
   color: var(--color-surface);
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
   white-space: nowrap;
@@ -329,7 +329,7 @@
   display: block;
   text-align: center;
   font-size: var(--font-size-base);
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
   color: var(--color-accent);
   text-decoration: none;
 }
@@ -349,11 +349,11 @@
    navegación siga siendo visible sin scroll. */
 @media (max-width: 1100px) {
   .profile-card__name {
-    font-size: 1.05rem;
+    font-size: var(--font-size-md);
   }
 
   .profile-card__role {
-    font-size: 0.95rem;
+    font-size: var(--font-size-base);
   }
 
   .sidebar {
@@ -362,13 +362,11 @@
   }
 
   .sidebar-fields__name {
-    font-size: 0.8rem;
+    font-size: var(--font-size-xs);
   }
 
-  /* El email es la línea más larga: a este ancho necesita bajar de cuerpo
-     para no partirse a mitad de palabra. */
   .sidebar-fields__value {
-    font-size: 0.78rem;
+    font-size: var(--font-size-sm);
   }
 
   .sidebar-fields {
@@ -427,14 +425,14 @@
   .profile-card__name {
     grid-area: name;
     align-self: end;
-    font-size: 1rem;
+    font-size: var(--font-size-base);
     line-height: 1.25;
   }
 
   .profile-card__role {
     grid-area: role;
     align-self: start;
-    font-size: 0.85rem;
+    font-size: var(--font-size-sm);
     line-height: 1.25;
   }
 
@@ -462,6 +460,6 @@
   .sidebar-fields__value,
   .sidebar-fields__email,
   .sidebar-cv {
-    font-size: 0.85rem;
+    font-size: var(--font-size-sm);
   }
 }
