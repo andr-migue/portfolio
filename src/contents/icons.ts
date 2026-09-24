@@ -30,11 +30,10 @@ const iconSlugs: Record<string, string> = {
     Docker: 'docker',
     SQL: 'mysql',
     Linux: 'linux',
+    GitHub: 'github',
     LinkedIn: 'linkedin',
-    X: 'twitter',
     Telegram: 'telegram',
     Discord: 'discord',
-    Instagram: 'instagram',
 }
 
 export function getIcon(name: string): string | undefined {

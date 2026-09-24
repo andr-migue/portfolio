@@ -5,6 +5,8 @@ export interface Experience {
     startDate: string
     endDate: string
     description: string
+    // Versión corta de la descripción para la card de Home.
+    summary?: string
     technologies: string[]
     projectNames?: string[]
 }
@@ -17,7 +19,8 @@ export const experiences: Experience[] = [
         startDate: 'Apr 2026',
         endDate: 'Present',
         description: 'Delivering frontend and backend features for a tourism-services platform, from booking flows and service catalogs to internal tooling. Collaborating with a distributed team and owning the full lifecycle of the components I ship.',
-        technologies: ['TypeScript', 'React', 'CSS', 'FastAPI', 'MongoDB'],
+        summary: 'Building frontend and backend features for a tourism-services platform, from booking flows to internal tooling.',
+        technologies: ['TypeScript', 'Python', 'React', 'CSS', 'FastAPI', 'MongoDB'],
     },
     {
         title: 'Independent Study',

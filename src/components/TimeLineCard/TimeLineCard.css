@@ -28,13 +28,12 @@
     flex-direction: column;
     gap: 0.75rem;
     width: 100%;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .timeline-card__body:hover {
     border-color: var(--color-accent);
-    box-shadow: 0 4px 16px color-mix(in srgb, var(--color-accent) 15%, transparent);
-    transform: translateY(-2px);
+    box-shadow: 0 0 0 1px var(--color-accent), 0 12px 24px rgba(0, 0, 0, 0.12);
 }
 
 .timeline-card__header {
@@ -196,10 +195,6 @@ a.timeline-card__company:hover {
 @media (prefers-reduced-motion: reduce) {
     .timeline-card__body {
         transition: none;
-    }
-
-    .timeline-card__body:hover {
-        transform: none;
     }
 
     .timeline-card__floating {

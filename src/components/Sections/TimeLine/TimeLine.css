@@ -1,39 +1,39 @@
-.experience {
+.timeline {
     padding: var(--space-md);
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
 }
 
-.experience__title {
+.timeline__title {
     font-size: var(--font-size-xl);
     font-weight: 700;
     color: var(--color-text);
 }
 
-.experience__timeline {
+.timeline__track {
     display: flex;
     flex-direction: column;
     gap: 0;
 }
 
-.experience__row-wrapper {
+.timeline__row-wrapper {
     position: relative;
     display: flex;
     flex-direction: column;
 }
 
 /* Espacio inferior para que se vea el tramo vertical del timeline */
-.experience__row-wrapper--drops-right,
-.experience__row-wrapper--drops-left {
+.timeline__row-wrapper--drops-right,
+.timeline__row-wrapper--drops-left {
     padding-bottom: var(--space-md);
 }
 
 /* Tramo vertical con esquinas redondeadas: la caja se dibuja con bordes
    (top+right+bottom o top+left+bottom) para que los radios formen la curva
    que conecta la línea horizontal de esta fila con la de la siguiente. */
-.experience__row-wrapper--drops-right::after,
-.experience__row-wrapper--drops-left::after {
+.timeline__row-wrapper--drops-right::after,
+.timeline__row-wrapper--drops-left::after {
     content: '';
     position: absolute;
     top: 7px;
@@ -44,14 +44,14 @@
     z-index: 0;
 }
 
-.experience__row-wrapper--drops-right::after {
+.timeline__row-wrapper--drops-right::after {
     right: 0;
     border-right: 2px solid var(--color-accent);
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
 }
 
-.experience__row-wrapper--drops-left::after {
+.timeline__row-wrapper--drops-left::after {
     left: 0;
     border-left: 2px solid var(--color-accent);
     border-top-left-radius: 12px;
@@ -59,19 +59,19 @@
 }
 
 /* Fila de cards */
-.experience__row {
+.timeline__row {
     position: relative;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
 }
 
-.experience__row--reversed {
+.timeline__row--reversed {
     flex-direction: row-reverse;
 }
 
 /* Línea horizontal que corre por los nodos de la fila */
-.experience__row::before {
+.timeline__row::before {
     content: '';
     position: absolute;
     top: 7px;
@@ -82,24 +82,24 @@
     z-index: 0;
 }
 
-.experience__row > .timeline-card {
+.timeline__row > .timeline-card {
     padding: 0 var(--space-sm);
 }
 
 /* Por debajo de tres columnas el zigzag no cabe: las filas se disuelven
    (display: contents) y las tarjetas cuelgan de una única línea vertical. */
 @media (max-width: 900px) {
-    .experience {
+    .timeline {
         padding: var(--space-sm);
     }
 
-    .experience__timeline {
+    .timeline__track {
         position: relative;
         gap: var(--space-sm);
         padding-left: 1.25rem;
     }
 
-    .experience__timeline::before {
+    .timeline__track::before {
         content: '';
         position: absolute;
         top: 7px;
@@ -109,18 +109,18 @@
         background: var(--color-accent);
     }
 
-    .experience__row-wrapper,
-    .experience__row {
+    .timeline__row-wrapper,
+    .timeline__row {
         display: contents;
     }
 
-    .experience__row-wrapper--drops-right::after,
-    .experience__row-wrapper--drops-left::after,
-    .experience__row::before {
+    .timeline__row-wrapper--drops-right::after,
+    .timeline__row-wrapper--drops-left::after,
+    .timeline__row::before {
         content: none;
     }
 
-    .experience__row > .timeline-card {
+    .timeline__row > .timeline-card {
         padding: 0;
     }
 }

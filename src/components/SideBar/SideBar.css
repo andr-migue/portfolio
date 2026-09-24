@@ -57,11 +57,6 @@
   background: none;
   border-radius: 50%;
   cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.profile-card__image-button:hover {
-  transform: scale(1.03);
 }
 
 .profile-card__image {
@@ -215,6 +210,17 @@
   overflow-wrap: anywhere;
 }
 
+/* El email es la línea más larga: su cuerpo escala con el ancho de la
+   sidebar para no partirse a mitad de palabra. */
+.sidebar-fields__email {
+  font-size: clamp(0.78rem, 0.2rem + 0.9vw, 1rem);
+}
+
+.sidebar-fields__actions {
+  display: inline-flex;
+  gap: 0.25rem;
+}
+
 .sidebar-fields__copy {
   position: relative;
   display: inline-flex;
@@ -304,18 +310,39 @@
   height: 32px;
   border-radius: 8px;
   color: var(--color-text-muted);
-  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  opacity: 0.85;
+  transition: opacity 0.15s ease;
 }
 
 .sidebar-socials__link:hover {
-
-  transform: translateY(-2px);
+  opacity: 1;
 }
 
 .sidebar-socials__icon {
   width: 30px;
   height: 30px;
   object-fit: contain;
+}
+
+/* Mismo estilo que las acciones de texto de Home ("Full timeline →"). */
+.sidebar-cv {
+  display: block;
+  text-align: center;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.sidebar-cv:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.sidebar-cv:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 /* Sidebar en una sola columna: se aprieta el bloque de datos para que la
@@ -364,8 +391,8 @@
 }
 
 /* Cabecera horizontal: la foto, el nombre y el tema en una fila, la
-   navegación debajo. Los datos de contacto se omiten porque la sección
-   Contact ya los muestra completos. */
+   navegación debajo. De los datos de contacto solo quedan el email y las
+   redes en una fila compacta; teléfono y ubicación se omiten. */
 @media (max-width: 900px) {
   .sidebar {
     justify-content: flex-start;
@@ -420,6 +447,21 @@
   }
 
   .sidebar-fields {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+  }
+
+  .sidebar-fields__item--secondary,
+  .sidebar-fields__name {
     display: none;
+  }
+
+  .sidebar-fields__value,
+  .sidebar-fields__email,
+  .sidebar-cv {
+    font-size: 0.85rem;
   }
 }

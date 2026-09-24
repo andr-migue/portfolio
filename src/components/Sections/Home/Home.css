@@ -1,0 +1,217 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: clamp(1rem, 3vw, 1.4rem);
+    /* El layout depende del ancho del contenido, no del viewport, porque
+       la sidebar cambia de tamaño y de posición según la pantalla. */
+    container-type: inline-size;
+}
+
+.home__block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    min-width: 0;
+}
+
+/* Tech Skills y la columna derecha se apilan con poco ancho. Con ancho
+   suficiente, Tech Skills toma solo lo que ocupan sus iconos y la columna
+   derecha el resto, para que no quede hueco vacío entre ambas. */
+.home__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+}
+
+@container (min-width: 760px) {
+    .home__grid {
+        grid-template-columns: auto minmax(0, 1fr);
+        column-gap: clamp(2rem, 5cqi, 5rem);
+    }
+}
+
+/* Columna derecha junto a Tech Skills: Experience, Education y Currently
+   learning apilados. Con poco ancho la rejilla pasa a una columna. */
+.home__column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    min-width: 0;
+}
+
+.home__heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* Mismo estilo que el título "Other projects" para que todas las
+   secciones compartan jerarquía. */
+.home__title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+}
+
+.home__more {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-accent);
+    white-space: nowrap;
+}
+
+.home__more:hover {
+    color: var(--color-accent-hover);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.home__more:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+.home__lead {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
+.home__skills {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.25rem;
+    /* Junto a la columna derecha, los grupos se reparten en todo su alto. */
+    flex: 1;
+}
+
+.home__skill-group {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.home__skills .project-card__tags {
+    gap: clamp(0.5rem, 1.2cqi, 1rem);
+}
+
+/* Los iconos crecen con el ancho del contenido. */
+.home__skills .project-card__tag--icon {
+    width: clamp(2.25rem, 3.5cqi, 3rem);
+    height: clamp(2.25rem, 3.5cqi, 3rem);
+}
+
+.home__label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.home__list {
+    list-style: none;
+    display: grid;
+    gap: 1.25rem;
+}
+
+/* Card compacta con el mismo aspecto y hover que ProjectCard y TimeLineCard. */
+.home__card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: var(--space-sm);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home__card:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 1px var(--color-accent), 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.home__card-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.75rem;
+}
+
+.home__card-title {
+    font-size: var(--font-size-base);
+    font-weight: 650;
+    color: var(--color-text);
+}
+
+.home__card-prep {
+    font-weight: 400;
+    color: var(--color-text-muted);
+}
+
+.home__card-meta {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+/* La organización forma parte del título: mismo cuerpo, en color de acento. */
+.home__card-link {
+    font-size: inherit;
+    font-weight: inherit;
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.home__card-text {
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+a.home__card-link:hover {
+    text-decoration: underline;
+}
+
+.home__bullets {
+    padding-left: 1.2rem;
+    color: var(--color-text);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.home__bullets li + li {
+    margin-top: 0.35rem;
+}
+
+.home__bullets li::marker {
+    color: var(--color-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home__card {
+        transition: none;
+    }
+}
+
+/* Las fichas de skills y de las cards compactas reutilizan las de
+   ProjectCard; aquí no se empujan al fondo y las de texto se apoyan sobre
+   la superficie para mantener contraste. */
+.home__skills .project-card__tags,
+.home__card .project-card__tags {
+    margin: 0;
+}
+
+.home__skills .project-card__tag:not(.project-card__tag--icon),
+.home__card .project-card__tag:not(.project-card__tag--icon) {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    padding: 0.25rem 0.65rem;
+}

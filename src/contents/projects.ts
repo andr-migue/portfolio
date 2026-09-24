@@ -18,7 +18,7 @@ export interface Project {
 export const projects: Project[] = [
     {
         name: 'portfolio',
-        description: 'Personal developer portfolio built with React 19, TypeScript and Vite, featuring an interactive map powered by Leaflet and a component-based architecture with typed content files.',
+        description: 'Personal developer portfolio built with React 19, TypeScript and Vite, with a component-based architecture, typed content files and light/dark theming.',
         url: 'https://github.com/andr-migue/portfolio',
         language: 'TypeScript',
         stars: 0,

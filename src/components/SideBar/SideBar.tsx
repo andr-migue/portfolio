@@ -4,7 +4,7 @@ import NavBar from '../NavBar/NavBar'
 import { contact } from '../../contents/contact'
 import { getIcon } from '../../contents/icons'
 
-const sections = ['Projects', 'Experience','Contact']
+const sections = ['Home', 'Projects', 'TimeLine']
 
 interface SideBarProps {
     active: number
@@ -12,9 +12,6 @@ interface SideBarProps {
     theme: 'light' | 'dark'
     toggleTheme: () => void
 }
-
-const EMAIL = 'miguelzamora210405@gmail.com'
-const PHONE = '+53 56860394'
 
 export default function SideBar({ active, onSelect, theme, toggleTheme }: SideBarProps) {
     const [showImage, setShowImage] = useState(false)
@@ -54,9 +51,9 @@ export default function SideBar({ active, onSelect, theme, toggleTheme }: SideBa
                     onClick={() => setShowImage(true)}
                     aria-label='Ver foto de perfil en grande'
                 >
-                    <img src={`${import.meta.env.BASE_URL}images/hero.jpg`} alt='Profile Image' className='profile-card__image'/>
+                    <img src={`${import.meta.env.BASE_URL}images/hero.jpg`} alt='Miguel Cazorla Zamora' className='profile-card__image'/>
                 </button>
-                <h2 className='profile-card__name'>Miguel Cazorla Zamora</h2>
+                <h1 className='profile-card__name'>Miguel Cazorla Zamora</h1>
                 <p className='profile-card__role'>Fullstack Software Developer</p>
             </div>
 
@@ -66,29 +63,41 @@ export default function SideBar({ active, onSelect, theme, toggleTheme }: SideBa
                 <li className='sidebar-fields__item'>
                     <span className='sidebar-fields__name'>Email: </span>
                     <span className='sidebar-fields__value sidebar-fields__value--copyable'>
-                        <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-                        <button
-                            type='button'
-                            className='sidebar-fields__copy'
-                            onClick={() => copy('email', EMAIL)}
-                            aria-label='Copiar email'
-                        >
-                            <img src={`${import.meta.env.BASE_URL}icons/copy.svg`} alt='' aria-hidden='true' />
-                            {copied === 'email' && (
-                                <span className='sidebar-fields__copied'>¡Copied!</span>
-                            )}
-                        </button>
+                        <span className='sidebar-fields__email'>{contact.email}</span>
+                        <span className='sidebar-fields__actions'>
+                            <button
+                                type='button'
+                                className='sidebar-fields__copy'
+                                onClick={() => copy('email', contact.email)}
+                                aria-label='Copy email'
+                                title='Copy'
+                            >
+                                <img src={`${import.meta.env.BASE_URL}icons/copy.svg`} alt='' aria-hidden='true' />
+                                {copied === 'email' && (
+                                    <span className='sidebar-fields__copied'>¡Copied!</span>
+                                )}
+                            </button>
+                            <a
+                                href={`mailto:${contact.email}`}
+                                className='sidebar-fields__copy'
+                                aria-label='Send email'
+                                title='Send'
+                            >
+                                <img src={`${import.meta.env.BASE_URL}icons/send.svg`} alt='' aria-hidden='true' />
+                            </a>
+                        </span>
                     </span>
                 </li>
-                <li className='sidebar-fields__item'>
+                <li className='sidebar-fields__item sidebar-fields__item--secondary'>
                     <span className='sidebar-fields__name'>Phone: </span>
                     <span className='sidebar-fields__value sidebar-fields__value--copyable'>
-                        <span>{PHONE}</span>
+                        <span>{contact.phone}</span>
                         <button
                             type='button'
                             className='sidebar-fields__copy'
-                            onClick={() => copy('phone', PHONE)}
-                            aria-label='Copiar teléfono'
+                            onClick={() => copy('phone', contact.phone)}
+                            aria-label='Copy phone'
+                            title='Copy'
                         >
                             <img src={`${import.meta.env.BASE_URL}icons/copy.svg`} alt='' aria-hidden='true' />
                             {copied === 'phone' && (
@@ -97,15 +106,9 @@ export default function SideBar({ active, onSelect, theme, toggleTheme }: SideBa
                         </button>
                     </span>
                 </li>
-                <li className='sidebar-fields__item'>
-                    <span className='sidebar-fields__name'>GitHub: </span>
-                    <span className='sidebar-fields__value'>
-                        <a href='https://github.com/andr-migue'>andr-migue</a>
-                    </span>
-                </li> 
-                <li className='sidebar-fields__item'>
+                <li className='sidebar-fields__item sidebar-fields__item--secondary'>
                     <span className='sidebar-fields__name'>Location: </span>
-                    <span className='sidebar-fields__value'>Havana, Cuba</span>
+                    <span className='sidebar-fields__value'>{contact.location}</span>
                 </li>
                 <li className='sidebar-fields__item'>
                     <ul className='sidebar-socials'>
@@ -128,6 +131,15 @@ export default function SideBar({ active, onSelect, theme, toggleTheme }: SideBa
                         ))}
                     </ul>
                 </li>
+                <li className='sidebar-fields__item'>
+                    <a
+                        href={contact.cvUrl}
+                        download='Miguel-Cazorla-Zamora-CV.pdf'
+                        className='sidebar-cv'
+                    >
+                        Download CV
+                    </a>
+                </li>
             </ul>
 
             {showImage && (
@@ -146,7 +158,7 @@ export default function SideBar({ active, onSelect, theme, toggleTheme }: SideBa
                         </button>
                         <img
                             src={`${import.meta.env.BASE_URL}images/hero.jpg`}
-                            alt='Profile Image'
+                            alt='Miguel Cazorla Zamora'
                             className='profile-card__floating-image'
                         />
                     </div>
