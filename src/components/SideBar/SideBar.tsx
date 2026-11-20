@@ -14,7 +14,7 @@ interface SideBarProps {
 }
 
 export default function SideBar({ active, onSelect, theme, toggleTheme }: SideBarProps) {
-    const { t, l } = useLanguage()
+    const { t, l, lang } = useLanguage()
     const [showImage, setShowImage] = useState(false)
     const [copied, setCopied] = useState<string | null>(null)
     const overlayRef = useRef<HTMLDivElement>(null)
@@ -142,8 +142,8 @@ export default function SideBar({ active, onSelect, theme, toggleTheme }: SideBa
                 </li>
                 <li className='sidebar-fields__item'>
                     <a
-                        href={contact.cvUrl}
-                        download='Miguel-Cazorla-Zamora-CV.pdf'
+                        href={l(contact.cvUrl)}
+                        download={`Miguel-Cazorla-Zamora-CV-${lang}.pdf`}
                         className='sidebar-cv'
                     >
                         {t.downloadCv}

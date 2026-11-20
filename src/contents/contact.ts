@@ -4,8 +4,11 @@ export const contact = {
     email: 'miguelzamora210405@gmail.com',
     phone: '+53 56860394',
     location: { en: 'Havana, Cuba', es: 'La Habana, Cuba' } as Localized,
-    // TODO: sustituir por el CV real.
-    cvUrl: `${import.meta.env.BASE_URL}cv/sample.pdf`,
+    // PDFs generados desde cv/ con `make` (fuente LaTeX por idioma).
+    cvUrl: {
+        en: `${import.meta.env.BASE_URL}cv/cv-en.pdf`,
+        es: `${import.meta.env.BASE_URL}cv/cv-es.pdf`,
+    } as Localized,
     socials: [
         { name: 'GitHub',    url: 'https://github.com/andr-migue' },
         { name: 'LinkedIn',  url: 'https://www.linkedin.com/in/miguel-zamora-3005523aa/' },

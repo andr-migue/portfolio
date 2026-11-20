@@ -1,0 +1,96 @@
+\documentclass[es]{resume}
+
+\begin{document}
+
+\resumeHeading{Miguel Cazorla Zamora}{%
+  La Habana, Cuba (disponible en remoto) $|$
+  \href{mailto:miguelzamora210405@gmail.com}{miguelzamora210405@gmail.com} $|$
+  +53 56860394 \\
+  \href{https://andr-migue.vercel.app}{andr-migue.vercel.app} $|$
+  \href{https://github.com/andr-migue}{github.com/andr-migue} $|$
+  \href{https://www.linkedin.com/in/miguel-zamora-3005523aa/}{linkedin.com/in/miguel-zamora-3005523aa}%
+}
+
+%------------------------------------------------------------------------------
+\section{Experiencia}
+\begin{entries}
+  \resumeEntry{Desarrollador Full-Stack (media jornada)}{abr 2026 -- actualidad}
+              {Wamasol -- plataforma B2B de reservas de viajes}{La Habana, Cuba}
+  \begin{bullets}
+    \resumeItem{Desarrollé la capa de pagos de un backend en FastAPI + MongoDB: pasarelas de Revolut y PayPal,
+      procesamiento de eventos por webhook, reembolsos y cancelaciones, y creación idempotente de pagos.}
+    \resumeItem{Diseñé el control de acceso basado en roles para agencias y subagencias: guards de permisos,
+      herencia de permisos de padre a hijo, listas de IP permitidas para API keys y un esquema OpenAPI por usuario.}
+    \resumeItem{Implementé un libro contable de crédito para agencias (retenciones con caducidad, consumo y liberación,
+      políticas de compensación, tareas programadas de conciliación) respaldado por tests de concurrencia,
+      idempotencia e inyección de fallos.}
+    \resumeItem{Integré APIs de proveedores aéreos (IATA NDC, XML) y hoteleros con gestión de sesión, construcción de
+      peticiones y parseo de respuestas, más un gateway simulado con fixtures para ejecutar la suite sin red.}
+    \resumeItem{Entregué flujos de reserva en React + TypeScript: búsqueda de hoteles y transporte multitramo, comparación,
+      selección de asiento, carrito y checkout, paneles de administración y una librería de componentes a partir de Figma.}
+    \resumeItem{Más de 750 commits entre backend y frontend; escribí tests automatizados del backend con pytest;
+      migré el build a uv y moví la CI a un runner self-hosted.}
+  \end{bullets}
+\end{entries}
+
+%------------------------------------------------------------------------------
+\section{Proyectos}
+\begin{entries}
+  \resumeProject{\textbf{Shelfie} $|$ \emph{Python, FastAPI, Beanie, MongoDB, React, TypeScript}}
+                {\href{https://github.com/andr-migue/shelfie-backend}{github.com/andr-migue/shelfie-backend}}
+  \begin{bullets}
+    \resumeItem{Gestor de biblioteca full-stack: API REST que busca y normaliza libros de la API de Open Library
+      en MongoDB, consumida por un frontend en React publicado como repositorio independiente.}
+  \end{bullets}
+
+  \resumeProject{\textbf{ToDo} $|$ \emph{C\#, .NET 10, PostgreSQL, Npgsql, React, TypeScript, Docker}}
+                {\href{https://github.com/andr-migue/ToDo}{github.com/andr-migue/ToDo}}
+  \begin{bullets}
+    \resumeItem{API mínima en .NET que consulta PostgreSQL directamente con Npgsql (sin ORM), un cliente de API tipado
+      en React y la base de datos en Docker, con CRUD completo.}
+  \end{bullets}
+
+  \resumeProject{\textbf{Servidor HTTP multihilo} $|$ \emph{Rust}}
+                {\href{https://github.com/andr-migue/web-server}{github.com/andr-migue/web-server}}
+  \begin{bullets}
+    \resumeItem{Servidor HTTP/1.1 construido desde cero solo con la librería estándar (TcpListener, thread pool propio)
+      que sirve archivos estáticos y atiende conexiones concurrentes.}
+  \end{bullets}
+
+  \resumeProject{\textbf{BrushBot-3000} $|$ \emph{C\#, Godot}}
+                {\href{https://github.com/andr-migue/BrushBot-3000}{github.com/andr-migue/BrushBot-3000}}
+  \begin{bullets}
+    \resumeItem{Intérprete para un lenguaje de dibujo propio: lexer, parser, analizador semántico e intérprete
+      tree-walking que controla un bot que pinta en vivo sobre un lienzo.}
+  \end{bullets}
+
+  \resumeProject{\textbf{Procesador S-MIPS} $|$ \emph{Logisim, Python}}
+                {\href{https://github.com/andr-migue/Proyecto-SMIPS-2025-2026}{github.com/andr-migue/Proyecto-SMIPS-2025-2026}}
+  \begin{bullets}
+    \resumeItem{CPU MIPS simplificada diseñada a nivel de puertas lógicas, validada con un harness en Python
+      con ensamblador, ejecutor de tests y evaluador de coste.}
+  \end{bullets}
+\end{entries}
+
+%------------------------------------------------------------------------------
+\section{Formación}
+\begin{entries}
+  \resumeEntry{Licenciatura en Ciencia de la Computación}{sep 2024 -- prevista 2028}
+              {Universidad de La Habana}{La Habana, Cuba}
+  \begin{bullets}
+    \resumeItem{Asignaturas relevantes: Estructuras de Datos y Algoritmos I--II, Bases de Datos, Sistemas Operativos,
+      Arquitectura de Computadoras, Matemática Discreta, Métodos Numéricos.}
+  \end{bullets}
+\end{entries}
+
+%------------------------------------------------------------------------------
+\section{Habilidades técnicas}
+\begin{itemize}[leftmargin=0.1in, label={}, itemsep=0pt]
+  \small
+  \item \textbf{Lenguajes:} Python, TypeScript, JavaScript, C\#, C++, Rust, C, SQL
+  \item \textbf{Backend:} FastAPI, Pydantic, Beanie, .NET, APIs REST, webhooks, pytest
+  \item \textbf{Frontend:} React, Vite, HTML, CSS, Vitest
+  \item \textbf{Bases de datos y herramientas:} MongoDB, PostgreSQL, Docker, Git, GitHub Actions, Linux, uv
+\end{itemize}
+
+\end{document}

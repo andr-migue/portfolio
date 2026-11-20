@@ -1,0 +1,95 @@
+\documentclass[en]{resume}
+
+\begin{document}
+
+\resumeHeading{Miguel Cazorla Zamora}{%
+  Havana, Cuba (open to remote) $|$
+  \href{mailto:miguelzamora210405@gmail.com}{miguelzamora210405@gmail.com} $|$
+  +53 56860394 \\
+  \href{https://andr-migue.vercel.app}{andr-migue.vercel.app} $|$
+  \href{https://github.com/andr-migue}{github.com/andr-migue} $|$
+  \href{https://www.linkedin.com/in/miguel-zamora-3005523aa/}{linkedin.com/in/miguel-zamora-3005523aa}%
+}
+
+%------------------------------------------------------------------------------
+\section{Experience}
+\begin{entries}
+  \resumeEntry{Full-Stack Developer (Part-time)}{Apr 2026 -- Present}
+              {Wamasol -- B2B travel booking platform}{Havana, Cuba}
+  \begin{bullets}
+    \resumeItem{Built the payments layer of a FastAPI + MongoDB backend: Revolut and PayPal gateways,
+      webhook event processing, refunds and cancellations, and idempotent payment creation.}
+    \resumeItem{Designed hierarchical role-based access control for agencies and sub-agencies: permission guards,
+      parent-to-child grant inheritance, IP allowlists for API keys and a per-user OpenAPI schema.}
+    \resumeItem{Implemented an agency credit ledger (holds with expiry, consume/release, compensation policies,
+      scheduled reconciliation jobs) backed by concurrency, idempotency and fault-injection tests.}
+    \resumeItem{Integrated airline (IATA NDC, XML) and hotel supplier APIs with session handling, request building and
+      response parsing, plus a fixture-based mock gateway so the suite runs offline.}
+    \resumeItem{Shipped React + TypeScript booking flows: hotel and multi-leg transport search, comparison, seat selection,
+      cart and checkout, admin panels, and a component library implemented from Figma.}
+    \resumeItem{750+ commits across backend and frontend; wrote automated backend tests with pytest;
+      migrated the build to uv and moved CI to a self-hosted runner.}
+  \end{bullets}
+\end{entries}
+
+%------------------------------------------------------------------------------
+\section{Projects}
+\begin{entries}
+  \resumeProject{\textbf{Shelfie} $|$ \emph{Python, FastAPI, Beanie, MongoDB, React, TypeScript}}
+                {\href{https://github.com/andr-migue/shelfie-backend}{github.com/andr-migue/shelfie-backend}}
+  \begin{bullets}
+    \resumeItem{Full-stack library manager: REST API that searches and normalizes books from the Open Library API
+      into MongoDB, consumed by a React frontend shipped as an independent repository.}
+  \end{bullets}
+
+  \resumeProject{\textbf{ToDo} $|$ \emph{C\#, .NET 10, PostgreSQL, Npgsql, React, TypeScript, Docker}}
+                {\href{https://github.com/andr-migue/ToDo}{github.com/andr-migue/ToDo}}
+  \begin{bullets}
+    \resumeItem{.NET minimal API querying PostgreSQL directly through Npgsql (no ORM), a typed React API client
+      and a Dockerized database, covering full CRUD.}
+  \end{bullets}
+
+  \resumeProject{\textbf{Multithreaded HTTP Server} $|$ \emph{Rust}}
+                {\href{https://github.com/andr-migue/web-server}{github.com/andr-migue/web-server}}
+  \begin{bullets}
+    \resumeItem{HTTP/1.1 server built from scratch on the standard library only (TcpListener, custom thread pool)
+      that serves static files and handles concurrent connections.}
+  \end{bullets}
+
+  \resumeProject{\textbf{BrushBot-3000} $|$ \emph{C\#, Godot}}
+                {\href{https://github.com/andr-migue/BrushBot-3000}{github.com/andr-migue/BrushBot-3000}}
+  \begin{bullets}
+    \resumeItem{Interpreter for a custom drawing language: lexer, parser, semantic analyzer
+      and tree-walking interpreter driving a bot that paints live on a canvas.}
+  \end{bullets}
+
+  \resumeProject{\textbf{S-MIPS Processor} $|$ \emph{Logisim, Python}}
+                {\href{https://github.com/andr-migue/Proyecto-SMIPS-2025-2026}{github.com/andr-migue/Proyecto-SMIPS-2025-2026}}
+  \begin{bullets}
+    \resumeItem{Simplified MIPS CPU designed at gate level, validated by a Python harness with an assembler,
+      test runner and cost evaluator.}
+  \end{bullets}
+\end{entries}
+
+%------------------------------------------------------------------------------
+\section{Education}
+\begin{entries}
+  \resumeEntry{BSc in Computer Science}{Sep 2024 -- Expected 2028}
+              {University of Havana}{Havana, Cuba}
+  \begin{bullets}
+    \resumeItem{Relevant coursework: Data Structures \& Algorithms I--II, Databases, Operating Systems,
+      Computer Architecture, Discrete Mathematics, Numerical Methods.}
+  \end{bullets}
+\end{entries}
+
+%------------------------------------------------------------------------------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.1in, label={}, itemsep=0pt]
+  \small
+  \item \textbf{Languages:} Python, TypeScript, JavaScript, C\#, C++, Rust, C, SQL
+  \item \textbf{Backend:} FastAPI, Pydantic, Beanie, .NET, REST APIs, webhooks, pytest
+  \item \textbf{Frontend:} React, Vite, HTML, CSS, Vitest
+  \item \textbf{Databases \& Tools:} MongoDB, PostgreSQL, Docker, Git, GitHub Actions, Linux, uv
+\end{itemize}
+
+\end{document}
