@@ -1,7 +1,7 @@
 import type { Localized } from '../i18n/language'
 
 export const contact = {
-    email: 'ancaza.dev@gmail.com',
+    email: 'micaza.dev@gmail.com',
     phone: '+53 56860394',
     location: { en: 'Havana, Cuba', es: 'La Habana, Cuba' } as Localized,
     // PDFs generados desde cv/ con `make` (fuente LaTeX por idioma).
